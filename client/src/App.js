@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+// this is david
 function App() {
   
   return (
@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          david <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
