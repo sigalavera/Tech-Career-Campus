@@ -9,6 +9,7 @@ import Layout from './Components/Pages/Layout/LayoutComponent';
 
 
 function App() {
+  
   return (
     <div className="App">
       <Router>
@@ -16,7 +17,6 @@ function App() {
         <Layout />
         <Footer />
       </Router>
-
     </div>
   );
 }
