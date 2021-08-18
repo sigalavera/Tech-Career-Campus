@@ -13,7 +13,7 @@ import Grades from '../Components/Pages/Grades/GradesComponent'
 import Syllabus from '../Components/Pages/Syllabus/SyllabusComponent'
 
 
-const Routing = () =>{
+const MainRouting = () =>{
     return(
         <Switch>
             <Route path="/news" component={News} />
@@ -21,12 +21,9 @@ const Routing = () =>{
             <Route path="/course-schedule" component={CourseSchedule} />
             <Route path="/forum" component={Forum} />
             <Route path="/my-course" component={MyCourse} />
-            <Route path="/daily-schedule" component={DailySchedule} />
-            <Route path="/grades" component={Grades} />
-            <Route path="/syllabus" component={Syllabus} />
         </Switch>
 
     )
 }
 
-export default Routing;
+export default MainRouting;
