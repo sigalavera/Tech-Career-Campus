@@ -25,39 +25,29 @@ const staffSchema = new Schema(
     },
     age: {
       type: Number,
-      require: true,
+      require: false,
+      default: 0,
     },
-    courseName: {
+    role: {
       type: String,
-      require: true,
-    },
-    role: { 
-        type: String,
-        default: 'Staff' 
+      default: "Staff",
     },
     profileImg: {
       type: String,
       default: "",
     },
     IdNumber: {
-        type: String,
-        default: "",
+      type: String,
+      default: "",
     },
-    tests: {
-      type: [{
-        name:{
-          type:String,
-          require:true
-        },
-        grade:{
-          type:String,
-          require:true
-        },
-      }],
-  },
+    courses: [{ type: Schema.Types.ObjectId, ref: "course"}],
+    event: [{ type: Schema.Types.ObjectId, ref: "event" }],
+    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "massage" }],
   },
   { timestamps: true }
 );
 
-const Staff = mongoose.model("student", staffSchema);
+const Staff = mongoose.model("staff", staffSchema);
 module.exports = Staff;
+
+
