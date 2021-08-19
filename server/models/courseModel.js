@@ -17,13 +17,15 @@ const courseSchema = new Schema(
                 subject: String,
                 isDone: {
                   type: Boolean,
-                  required: false,
+                  required: true,
+                  default:false
                 },
+                link:String
               },
             ],
           },
           summery: String,
-          link: {
+          links: {
             type: [],
           },
         },
