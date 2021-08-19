@@ -1,0 +1,232 @@
+
+{
+    "name":"פיתוח מ",
+    "CourseInformation":[
+        {
+            "nameSubject": "html",
+            "topics": 
+            [
+                {
+                    "subject": "רקע",
+                    "isDone":false 
+                },
+                {
+                    "subject": "מבנה של html",
+                    "isDone":false 
+                },
+                {
+                    "subject": "תגיות",
+                    "isDone":false 
+                },
+                {
+                    "subject": "חלוקה נכונה",
+                    "isDone":false 
+                }
+            ],
+            
+            "summery":"HTML- Hyper Text Markup Language היא שפה שמאפשרת הצגת מידע ברשת האינטרנט מה שאנחנו רואים כאשר אנו צופים בדף אינטרנט זה תרגום של דף (html) על ידי הדפדפן שלנו.   ",
+
+            "link":["https://drive.google.com/drive/folders/"]
+          },
+          {
+            "nameSubject": "css",
+            "topics": 
+            [
+                {
+                    "subject": "מה זה CSS?",
+                    "isDone":false 
+                },
+                {
+                    "subject": "מיקום",
+                    "isDone":false 
+                },
+                {
+                    "subject": "סלקטורים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "הערות",
+                    "isDone":false 
+                },
+                {
+                    "subject": "שרשור עיצוב",
+                    "isDone":false 
+                },
+                {
+                    "subject": "מאפיינים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Positioning and Layout",
+                    "isDone":false 
+                },
+                {
+                    "subject": "CSS3",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Gradients & Backgrounds",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Transitions & Transforms",
+                    "isDone":false 
+                },
+                {
+                    "subject": "סלקטורים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "CSS Filters",
+                    "isDone":false 
+                }
+            ],
+            
+            "summery":"מדורגים עיצוב גיליונות . Cascading Style Sheets - CSS  היא שפת עיצוב שמגדירה את תבנית העיצוב של מסמכיHTML .CSS מטפלת בגופנים, צבעים, גבולות, שורות, גובה, רוחב, תמונות רקע, מיקום מתקדם ודברים רבים נוספים ",
+
+            "link":["https://drive.google.com/drive/folders/"]
+          },
+
+          {
+            "nameSubject": "javascript vanilla ",
+            "topics": 
+            [
+                {
+                    "subject": "מה זה JavaScript?",
+                    "isDone":false 
+                },
+                {
+                    "subject": "משתנים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "אופרטורים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "תנאים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "לולאות",
+                    "isDone":false 
+                },
+                {
+                    "subject": "פונקציות",
+                    "isDone":false 
+                },
+                {
+                    "subject": "מערכים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "אובייקטים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "גאוו'ה סקריפט וה-DOM",
+                    "isDone":false 
+                },
+                {
+                    "subject": "צמתים בעץ",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Timers",
+                    "isDone":false 
+                },
+                {
+                    "subject": "אנימציות ב CSS ו JavaScript",
+                    "isDone":false 
+                },
+                {
+                    "subject": " וולידציות טפסים",
+                    "isDone":false 
+                },
+                {
+                    "subject": "ES6",
+                    "isDone":false 
+                }
+            ],
+            
+            "summery":",(JS) JavaScript שפת סקריפט מבוססת אובייקטים.  כלומר, היא מחולקת לאובייקטים וכל אובייקט הוא מכלול של פונקציות (מתודות) ותכונות שפת JavaScript  מאפשרת למפתחים להטביע קטעי סקריפט ('תוכניות קטנות') בתוך מסמכי  HTML ובכך להפוך את הדפים לדינמיים יותר.JavaScript הייתה מיועדת לצד הלקוח, אמנם כיום ניתן לראות שימוש נרחב יותר גם בצד שרת",
+
+            "link":["https://drive.google.com/drive/folders/"]
+          },
+          {
+            "nameSubject": "javascript ES6 ",
+            "topics": 
+            [
+                {
+                    "subject": "This keyword",
+                    "isDone":false 
+                },
+                {
+                    "subject": "אובייקט ה Array",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Switch-case",
+                    "isDone":false 
+                },
+                {
+                    "subject": "var & let & const",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Loops",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Objects",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Classes ",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Modules",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Map",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Callbacks",
+                    "isDone":false 
+                },
+                {
+                    "subject": "אסינכרוני",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Promises",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Async – await",
+                    "isDone":false 
+                },
+                {
+                    "subject": "JSON",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Ajax",
+                    "isDone":false 
+                },
+                {
+                    "subject": "Web API",
+                    "isDone":false 
+                }
+            ],
+            
+            "summery":"נתחיל בהתחלה. ES6 היא הגירסא הבאה של JavaScript",
+
+            "link":["https://drive.google.com/drive/folders/"]
+          }
+    ]
+}
+

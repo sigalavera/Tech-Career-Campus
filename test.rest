@@ -1,0 +1,14 @@
+POST http://localhost:8080/api/staff
+    Content-Type: application/json
+
+
+{
+    "firstName": "טלי",
+    "lastName": "משהו",
+    "email": "tali@gmail.com",
+    "phone": "0545632578",
+    "password": "154623",
+    "age": 28
+}
+
+
