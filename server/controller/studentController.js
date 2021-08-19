@@ -17,11 +17,11 @@ const getStudent = async (req, res) => {
   try {
     await StudentModel.find({}, (err, result) => {
       if (err) console.log(err); 
-      res.status(200).json({ massage: "create Student success!", data: result })
+      res.status(200).json({ massage: "get Student success!", data: result })
 
     });
   } catch (err) {
-    res.status(500).json({ massage:  "creat new Student field", error: err });
+    res.status(500).json({ massage:  "get Student field", error: err });
   }
 };
 
