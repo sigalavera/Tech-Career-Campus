@@ -8,9 +8,6 @@ import Events from '../Components/Pages/Events/EventsComponent';
 import CourseSchedule from '../Components/Pages/CourseSchedule/CourseScheduleComponent';
 import Forum from '../Components/Pages/Forum/ForumComponent'
 import MyCourse from '../Components/Pages/MyCourse/MyCourseComponent';
-import DailySchedule from '../Components/Pages/DailySchedule/DailyScheduleComponent';
-import Grades from '../Components/Pages/Grades/GradesComponent'
-import Syllabus from '../Components/Pages/Syllabus/SyllabusComponent'
 
 
 const MainRouting = () =>{

@@ -8,22 +8,22 @@ const Footer = () => {
                 <ul>
                     <li>
                         <a href="https://www.tech-career.org/" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-tv"></i>
+                            <i className="fas fa-tv"></i>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.facebook.com/tech.career/" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook-f"></i>
+                            <i className="fab fa-facebook-f"></i>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.linkedin.com/school/techcareerisrael/" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin-in"></i>
+                            <i className="fab fa-linkedin-in"></i>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/channel/UCVNITxGQ4M_Ze5hxv36B40Q" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-youtube"></i>
+                            <i className="fab fa-youtube"></i>
                         </a>
                     </li>
                 </ul>

@@ -5,17 +5,36 @@ const courseSchema = new Schema(
   {
     name: {
       type: String,
-      require: true,
+      required: true,
     },
-    summary:{
-        type: String,
-        require: false,
+    CourseInformation: {
+      type: [
+        {
+          nameSubject: String,
+          topics: {
+            type: [
+              {
+                subject: String,
+                isDone: {
+                  type: Boolean,
+                  required: false,
+                },
+              },
+            ],
+          },
+          summery: String,
+          link: {
+            type: [],
+          },
+        },
+      ],
+      require: false,
     },
-    link:{
-        type:[],
-    }
-    
-
+    isDone: {
+      type: Boolean,
+      required: false,
+    },
+    coursesCreator: [{ type: Schema.Types.ObjectId, ref: "staff"}],
   },
   { timestamps: true }
 );
