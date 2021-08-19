@@ -1,4 +1,4 @@
 const SyllabusComponent = () => {
-  return <h1> סילבוס </h1>;
+  return <h1>סילבוס</h1>;
 };
 export default SyllabusComponent;

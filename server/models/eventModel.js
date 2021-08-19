@@ -12,6 +12,10 @@ const eventSchema = new Schema(
       type: String,
       required: true,
     },
+    creatorEvent: [{ type: Schema.Types.ObjectId, ref: "staff" }],
   },
   { timestamps: true }
 );
+
+const Event = mongoose.model("event", eventSchema);
+module.exports = Event;
