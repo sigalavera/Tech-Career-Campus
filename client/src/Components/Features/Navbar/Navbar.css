@@ -1,1 +1,35 @@
+.navbar {
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 15px;
+}
+.navbar-links {
+  list-style-type: none;
+  width: 60vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-links li a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 18
 
+}
+.navbar-links li {
+    height: fit-content;
+    border-bottom: 1px white solid;
+}
+.navbar-logo{
+    height: 64px;
+}
+
+.navbar-logo img{
+    height: 100%;
+}
