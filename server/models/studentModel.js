@@ -5,48 +5,60 @@ const studentSchema = new Schema(
   {
     firstName: {
       type: String,
-      require: true,
+      required: true,
     },
     lastName: {
       type: String,
-      require: true,
+      required: true,
     },
     email: {
       type: String,
-      require: true,
+      required: true,
     },
     phone: {
       type: String,
-      require: true,
+      required: true,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
     age: {
       type: Number,
-      require: true,
+      required: true,
     },
-    course: {
+    courseName: {
       type: String,
-      require: true,
+      required: true,
     },
-    role: { 
-        type: String,
-        default: 'Student' 
+    role: {
+      type: String,
+      default: "Student",
     },
     profileImg: {
       type: String,
       default: "",
     },
     IdNumber: {
-        type: String,
-        default: "",
+      type: String,
+      default: "",
     },
-    grade: {
-        type: String,
-        default: "",
+    tests: {
+      type: [
+        {
+          name: {
+            type: String,
+            require: false,
+            default: "",
+          },
+          grade: {
+            type: Number,
+            default: 0,
+          },
+        },
+      ],
     },
+    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "messages" }],
   },
   { timestamps: true }
 );
