@@ -2,8 +2,12 @@ import React from 'react'
 
 const Login = ()=> {
     return (
-        <div>
-            Login
+        <div className="login">
+            <div className="login-user">
+                login
+
+            </div>
+            
         </div>
     )
 }

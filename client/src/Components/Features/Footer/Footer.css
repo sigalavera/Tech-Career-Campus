@@ -1,0 +1,36 @@
+
+.footerDiv .aboutUsClass {
+    display: flex;
+    justify-content: flex-end;
+    /* flex-direction: row; */
+    border: 1px solid black;
+    width: 350px;
+    height: 100px;
+    /* right: 60px; */
+    /* bottom: 2%; */
+}
+.footerDiv .aboutUsClass ul li {
+    display: flex;
+    /* flex-direction: row; */
+     display: inline-block; 
+    /* width: 60px;
+    height: 60px;  */
+    
+    
+
+}
+.footerDiv .aboutUsClass ul li a{
+    /* display: block; */
+    color: #070707;
+    text-align: center;
+    padding: 12px 17px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.footerDiv .aboutUsClass ul li a:hover{
+    background: #f34b2d;
+    color: #f7f4f4;
+    
+}
