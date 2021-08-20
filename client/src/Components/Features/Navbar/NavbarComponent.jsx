@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import techLogo from "../../../images/tech-logo.jpeg";
 import "./Navbar.css";
+import LoginComponent from '../../Pages/Login/LoginComponent';
+import "../../Pages/Login/LoginComponent.css";
 //Ticker moving news
 export default function Navbar() {
   return (
+    <>
     <div className="navbar">
       <ul className="navbar-links">
         <li>
@@ -26,6 +29,9 @@ export default function Navbar() {
       <div className="navbar-logo">
         <img src={techLogo} alt="" />
       </div>
+      
     </div>
+    <LoginComponent/>
+    </>
   );
 }
