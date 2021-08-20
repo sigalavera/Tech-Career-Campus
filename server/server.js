@@ -22,7 +22,6 @@ db.on("error", () => {
 app.use('/api/student',routeStudent);
 app.use('/api/course',routeCourse);
 app.use('/api/staff',routeStaff);
-
 app.listen(PORT, () => {
     console.log(
         `${chalk.green("tech_career")} ${chalk.yellow(
