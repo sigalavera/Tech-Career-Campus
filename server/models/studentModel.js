@@ -48,16 +48,16 @@ const studentSchema = new Schema(
         {
           name: {
             type: String,
-            require: false,
-            default: "",
+            require: true,
           },
           grade: {
             type: Number,
-            default: 0,
+            required:true
           },
         },
       ],
     },
+    required:false,
     creatorMessages: [{ type: Schema.Types.ObjectId, ref: "messages" }],
   },
   { timestamps: true }

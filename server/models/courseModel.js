@@ -18,15 +18,29 @@ const courseSchema = new Schema(
                 isDone: {
                   type: Boolean,
                   required: true,
-                  default:false
+                  default: false,
                 },
-                link:String
               },
             ],
           },
           summery: String,
           links: {
-            type: [],
+            type: [
+              {
+                tasks: {
+                  type: String,
+                  default:""
+                },
+                Presentations: {
+                  type: String,
+                  default:""
+                },
+                StudyAid: {
+                  type: String,
+                  default:""
+                },
+              },
+            ],
           },
         },
       ],
@@ -36,7 +50,7 @@ const courseSchema = new Schema(
       type: Boolean,
       required: false,
     },
-    coursesCreator: [{ type: Schema.Types.ObjectId, ref: "staff"}],
+    coursesCreator: [{ type: Schema.Types.ObjectId, ref: "staff" }],
   },
   { timestamps: true }
 );
