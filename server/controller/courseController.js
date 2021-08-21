@@ -23,9 +23,20 @@ const getCourse = async (req, res) => {
     res.status(500).json({ massage:  "get course field", error: err });
   }
 };
+const getCourseByName = async (req, res) => {
+  try {
+    await CourseModel.find({name:req.body.name || req.body.courseName}, (err, result) => {
+      if (err) console.log(err); 
+      res.status(200).json({ massage: "get course by name success!", data: result })
+
+    });
+  } catch (err) {
+    res.status(500).json({ massage:  "get course by name field", error: err });
+  }
+};
 
 module.exports = {
      addNewCourse ,
      getCourse,
-
+     getCourseByName,
 };

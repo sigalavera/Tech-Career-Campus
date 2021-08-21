@@ -4,8 +4,18 @@ import "./Footer.css"
 const Footer = () => {
     return (
         <div className="footerDiv">
+            <div className="contactUsClass">
+                <h4> צור קשר</h4>
+                <ul>
+                    <li> 08-3738000 </li>
+                    <li> info@tech-career.org </li>
+                    <li> בת שבע 3, מתחם טלרד, לוד </li>
+                </ul>
+            </div>
             <div className="aboutUsClass">
-                <h4> מי אנחנו </h4>
+                
+                {/* <h4> מי אנחנו </h4> */}
+                
                 <ul>
                     <li>
                         <a href="https://www.tech-career.org/" target="_blank" rel="noopener noreferrer">
@@ -30,14 +40,7 @@ const Footer = () => {
                 </ul>
                 
             </div>
-            <div className="contactUsClass">
-                <h4> צור קשר</h4>
-                <ul>
-                    <li> 08-3738000 </li>
-                    <li> info@tech-career.org </li>
-                    <li> בת שבע 3, מתחם טלרד, לוד </li>
-                </ul>
-            </div>
+            
         </div>
     )
 }
