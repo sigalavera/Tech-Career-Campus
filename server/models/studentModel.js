@@ -52,12 +52,12 @@ const studentSchema = new Schema(
           },
           grade: {
             type: Number,
-            require: true,
+            required:true
           },
         },
       ],
     },
-    required: false,
+    required:false,
     creatorMessages: [{ type: Schema.Types.ObjectId, ref: "messages" }],
   },
   { timestamps: true }
