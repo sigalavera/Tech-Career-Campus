@@ -1,0 +1,7 @@
+.student-info{
+    z-index: 10;
+    width: 60%;
+    height: fit-content;
+    position: absolute;
+    background-color: pink;
+}
