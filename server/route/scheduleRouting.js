@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const scheduleCtrl = require('../controllers/scheduleCtrl');
+const scheduleCtrl = require('../controller/scheduleController');
 
 
 router.get('/',scheduleCtrl.getAllClasses);
