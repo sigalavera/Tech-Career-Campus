@@ -8,4 +8,4 @@ router.put('/',scheduleCtrl.updateClasses);
 router.post('/',scheduleCtrl.postClasses);
 
 
-module.exports = router ;
+module.exports = router;
