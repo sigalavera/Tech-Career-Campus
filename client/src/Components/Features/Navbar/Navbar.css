@@ -1,21 +1,17 @@
 .navbar {
-border: 1px solid black;
+/* border: 1px solid black; */
   width: 100vw;
   height: 64px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   padding: 0px 40px;
 }
 .navbar-links {
-  margin-left: 50px;
-  border: 1px solid black;
+  
+  /* border: 1px solid black; */
   width: 800px;
   list-style-type: none;
-  /* width: 60vw; */
   display: flex;
-  /* flex-wrap: wrap;
-  flex-direction: row-reverse; */
   justify-content: space-around;
   align-items: center;
   
@@ -23,24 +19,41 @@ border: 1px solid black;
 
 
 .navbar-links li a{
-   
+  text-shadow: 1px 1px 10px white;
     text-decoration: none;
     color: white;
-    font-weight: 500;
+    font-family: serif;
+    font-weight: 400;
     font-size: 18
 
 }
 .navbar-links li {
    
     height: fit-content;
-    border-bottom: 1px white solid;
+    /* border-bottom: 1px  white solid; */
 }
 .navbar-logo{
-  border: 1px solid black;
+  /* border: 1px solid black; */
     height: inherit;
 }
 
 .navbar-logo img{
   width: 150px;
     height: 100%;
+    border-radius: 0px 0px 14px 14px;
+}
+@media only screen and (max-width: 768px){
+  .navbar{
+    height: 85px;
+  }
+  .navbar-links{
+    width: 400px;
+  }
+  .navbar-logo img{
+    width: 230px;
+    height: 85px;
+  }
+  .navbar-links{
+    display: none;
+  }
 }
