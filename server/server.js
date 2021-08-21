@@ -10,8 +10,10 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 const routeStudent = require("./route/studentRouting");
-const routeCourse = require("./route/courseRouting")
-const routeStaff = require("./route/staffRouting")
+const routeCourse = require("./route/courseRouting");
+const routeStaff = require("./route/staffRouting");
+const routeMessage = require('./route/messagesRouting')
+const routeSchedule = require('./route/scheduleRouting')
 const db = require("./DB");
 
 db.on("error", () => {
@@ -22,6 +24,9 @@ db.on("error", () => {
 app.use('/api/student',routeStudent);
 app.use('/api/course',routeCourse);
 app.use('/api/staff',routeStaff);
+app.use('/api/message',routeMessage);
+app.use('/api/schedule',routeSchedule);
+
 app.listen(PORT, () => {
     console.log(
         `${chalk.green("tech_career")} ${chalk.yellow(

@@ -24,7 +24,7 @@ const getStudent = async (req, res) => {
   }
 };
 
-const GetStudentGradeById = async (req, res) => {
+const getStudentGradeById = async (req, res) => {
   try {
     StudentModel.findOne({ IdNumber: req.body.IdNumber }, (error, result) => {
       if (error) throw error
@@ -39,5 +39,5 @@ const GetStudentGradeById = async (req, res) => {
 module.exports = {
   addNewStudent,
   getStudent,
-  GetStudentGradeById
+  getStudentGradeById
 };
