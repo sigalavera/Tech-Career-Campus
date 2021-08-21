@@ -1,4 +1,4 @@
-const ScheduleModel = require('../model/scheduleModel');
+const ScheduleModel = require('../models/scheduleModel');
 
 const getAllClasses = async (req, res) => {
 

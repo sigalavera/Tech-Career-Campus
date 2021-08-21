@@ -26,6 +26,7 @@ app.use('/api/course',routeCourse);
 app.use('/api/staff',routeStaff);
 app.use('/api/message',routeMessage);
 app.use('/api/schedule',routeSchedule);
+
 app.listen(PORT, () => {
     console.log(
         `${chalk.green("tech_career")} ${chalk.yellow(
