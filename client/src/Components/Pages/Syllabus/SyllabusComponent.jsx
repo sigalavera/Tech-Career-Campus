@@ -30,17 +30,12 @@ const SyllabusComponent = () => {
               contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
               date="2011 - present"
               iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-              icon
             >
               <h2 className="vertical-timeline-element-title">{courseItem.nameSubject}</h2>
               <h4 className="vertical-timeline-element-subtitle">
                 <ul>
-                  {courseItem.topics.map((topic) => {
-                    return (
-                      <li>
-                        {topic.subject}
-                      </li>
-                    )
+                  {courseItem.topics.map((topic, index) => {
+                    return <li key={index}>{topic.subject}</li>;
                   })}
                 </ul>
               </h4>

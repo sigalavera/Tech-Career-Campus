@@ -16,9 +16,6 @@ export default function Navbar() {
           <Link to={"/events"}>אירועים</Link>
         </li>
         <li>
-          <Link to={"/course-schedule"}>לו"ז כיתות</Link>
-        </li>
-        <li>
           <Link to={"/forum"}>פורום</Link>
         </li>
         <li>

@@ -7,7 +7,7 @@ const Login = () => {
         <form>
           <input type="text" placeholder="Email Adress" />
           <br />
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Password" autoComplete="off" />
           <br />
           <button type="submit">Submit</button>
         </form>
