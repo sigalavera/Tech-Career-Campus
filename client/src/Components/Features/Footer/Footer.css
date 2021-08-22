@@ -1,0 +1,92 @@
+.footerDiv {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    
+}
+.footerDiv .contactUsClass {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 100px;
+}
+.footerDiv .contactUsClass h4{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: flex-end;
+    width: 230px;
+    height: 30px;
+}
+
+.footerDiv .contactUsClass  ul li{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: 230px;
+    height: 20px;
+}
+.footerDiv .aboutUsClass ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row; */
+    /* border: 1px solid black; */
+    width: 350px;
+    height: 100px;
+    /* right: 60px; */
+    /* bottom: 2%; */
+}
+.footerDiv .aboutUsClass ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row; */
+     display: inline-block; 
+    /* width: 60px;
+    height: 60px;  */
+    
+}
+.footerDiv .aboutUsClass ul li a{
+    color: #070707;
+    text-align: center;
+    padding: 12px 26px;
+    font-size: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.footerDiv .aboutUsClass ul li a:hover{
+    background: linear-gradient(to bottom right,rgb(248,78,3),rgb(238,73,94),rgb(277,67,196));
+    color: #f7f4f4;
+    
+}
+@media only screen and (max-width: 768px){
+    .footerDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footerDiv .contactUsClass{
+        display: none;
+        
+    }
+    .footerDiv .aboutUsClass{
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footerDiv .aboutUsClass ul li a{
+        padding:10px 30px ;
+        font-size: 20px;
+    }
+}

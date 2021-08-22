@@ -1,10 +1,18 @@
 import React from 'react'
-
-const Login = ()=> {
-    return (
-        <div>
-            Login
-        </div>
-    )
-}
-export default Login
+import "./Login.css";
+const Login = () => {
+  return (
+    <div className="login">
+      <div className="login-user">
+        <form>
+          <input type="text" placeholder="Email Adress" />
+          <br />
+          <input type="password" placeholder="Password" autoComplete="off" />
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+export default Login;
