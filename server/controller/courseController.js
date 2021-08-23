@@ -3,7 +3,7 @@ const CourseModel = require('../models/courseModel')
 const addNewCourse = async (req, res) => {
   try {
     await CourseModel.insertMany(req.body, (err, result) => {
-      if (err) console.log(err); 
+      if (err) throw err; 
       res.status(200).json({ massage: "create course success!", data: result })
 
     });
@@ -11,11 +11,10 @@ const addNewCourse = async (req, res) => {
     res.status(500).json({ massage:  "createing  course field", error: err });
   }
 };
-
-const getCourse = async (req, res) => {
+const getAllCourses = async (req, res) => {
   try {
     await CourseModel.find({}, (err, result) => {
-      if (err) console.log(err); 
+      if (err) throw err; 
       res.status(200).json({ massage: "get course success!", data: result })
 
     });
@@ -25,8 +24,8 @@ const getCourse = async (req, res) => {
 };
 const getCourseByName = async (req, res) => {
   try {
-    await CourseModel.find({name:req.body.name || req.body.courseName}, (err, result) => {
-      if (err) console.log(err); 
+    await CourseModel.find(req.body.name, (err, result) => {
+      if (err) throw err; 
       res.status(200).json({ massage: "get course by name success!", data: result })
 
     });
@@ -37,6 +36,6 @@ const getCourseByName = async (req, res) => {
 
 module.exports = {
      addNewCourse ,
-     getCourse,
+     getAllCourses,
      getCourseByName,
 };
