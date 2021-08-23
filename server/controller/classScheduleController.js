@@ -1,4 +1,5 @@
 const ScheduleModel = require('../models/classScheduleModel');
+const mongodb = require('mongodb')
 
 const getAllClasses = async (req, res) => {
 
@@ -39,8 +40,8 @@ const updateClasses = async (req, res) => {
 
 const deleteClasses = async (req, res) => {
     try {
-        await ScheduleModel.findByIdAndDelete(req.body.id , taken ,(err, result) => {
-            if (err) throw err,
+        await ScheduleModel.findByIdAndDelete(req.body.id  ,(err, result) => {
+            if (err) throw err;
                 res.status(200).json({ massage: "delete class success",data: result})
         })
     }
