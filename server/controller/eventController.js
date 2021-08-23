@@ -10,7 +10,7 @@ const getAllEventPost = async (req, res) => {
   } catch (err) {
     res.status(500).json({ massage: "get event post field", error: err });
   }
-}
+};
 
 const getEventById = async (req, res) => {
   try {
@@ -24,11 +24,9 @@ const getEventById = async (req, res) => {
       }
     );
   } catch (error) {
-    res
-      .status(500)
-      .json({ massage: "get event by id field  ", error: error });
+    res.status(500).json({ massage: "get event by id field  ", error: error });
   }
-}
+};
 
 const PostnewEvent = async (req, res) => {
   try {
@@ -42,7 +40,7 @@ const PostnewEvent = async (req, res) => {
   } catch (err) {
     res.status(500).json({ massage: "post added field ", error: err });
   }
-}
+};
 
 const deleteEventPost = async (req, res) => {
   try {
@@ -58,7 +56,7 @@ const deleteEventPost = async (req, res) => {
   } catch (error) {
     res.status(500).json({ massage: "deleted event field", error: error });
   }
-}
+};
 
 const updateEventPost = async (req, res) => {
   try {
@@ -73,7 +71,7 @@ const updateEventPost = async (req, res) => {
   } catch (error) {
     res.status(500).json({ massage: "update event field", error: error });
   }
-}
+};
 module.exports = {
   getAllEventPost,
   getEventById,

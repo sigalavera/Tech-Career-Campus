@@ -3,12 +3,11 @@ const Schema = mongoose.Schema;
 
 const forumSchema = new Schema(
   {
-    massageBody: {
+    massage: {
       type: String,
-      required: true,
     },
-    creatorStudentMessages: { type: Schema.Types.ObjectId, ref: "student" },
-    creatorStaffMessages: { type: Schema.Types.ObjectId, ref: "staff" },
+    authorByStudent: { type: Schema.Types.ObjectId, ref: "student" },
+    authorByStaff: { type: Schema.Types.ObjectId, ref: "staff" },
   },
   { timestamps: true }
 );

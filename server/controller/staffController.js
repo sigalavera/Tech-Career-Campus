@@ -56,9 +56,13 @@ const updateStaffById = async (req,res) =>{
 }
 
 module.exports = {
+<<<<<<< HEAD
      addNewStaff ,
      getAllStaff,
      getAllStaffById,
      deleteStaffById,
      updateStaffById
+=======
+     addNewStaff,
+>>>>>>> main
 };

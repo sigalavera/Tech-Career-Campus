@@ -39,7 +39,7 @@ const getStudentGradeById = async (req, res) => {
     res.status(500).json({ massage: "get Student grades by id faild", error: err });
   }
 }
-const AddStudentTestById = async (req, res) => {
+const addStudentTestById = async (req, res) => {
   try {
     StudentModel.updateOne({ _id:mongodb.ObjectID(req.body._id) }, { $push: { "tests": { name: req.body.name, grade: req.body.grade } } }, (error, result) => {
       if (error) throw error
@@ -51,7 +51,7 @@ const AddStudentTestById = async (req, res) => {
     res.status(500).json({ massage: "adding a test to the test array faild", error: err });
   }
 }
-const UpdateStudentTestById = async (req, res) => {
+const updateStudentTestById = async (req, res) => {
   try {
     StudentModel.updateOne({ _id:mongodb.ObjectID(req.params._id) , tests: { $elemMatch: { name:req.body.name} } }, { $set: { "tests.$.grade": req.body.grade } }, (error, result) => {
       if (error) throw error
@@ -63,7 +63,7 @@ const UpdateStudentTestById = async (req, res) => {
     res.status(500).json({ massage: "updating a student test faild", error: err });
   }
 }
-const DeleteStudentTestById = async (req, res) => {
+const deleteStudentTestById = async (req, res) => {
   try {
     StudentModel.updateOne({ _id:mongodb.ObjectID(req.params._id) }, { $pull: { tests: { _id:mongodb.ObjectID(req.body._id) } } }, (error, result) => {
       if (error) throw error
@@ -80,7 +80,7 @@ module.exports = {
   addNewStudent,
   getStudent,
   getStudentGradeById,
-  AddStudentTestById,
-  UpdateStudentTestById,
-  DeleteStudentTestById
+  addStudentTestById,
+  updateStudentTestById,
+  deleteStudentTestById
 };
