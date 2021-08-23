@@ -1,5 +1,4 @@
 const ScheduleModel = require('../models/classScheduleModel');
-const mongodb = require('mongodb')
 
 const getAllClasses = async (req, res) => {
 
@@ -13,7 +12,7 @@ const getAllClasses = async (req, res) => {
 
 const postClasses = async (req, res) => {
     try {
-        await ScheduleModel.insertMany(req.body.schedule, (err, result) => {
+        await ScheduleModel.insertMany(req.body, (err, result) => {
             if (err) throw err;
             res.json({ massage: "add class", data: result });
         })
