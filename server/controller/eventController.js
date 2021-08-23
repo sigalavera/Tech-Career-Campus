@@ -15,7 +15,7 @@ const getAllEventPost = async (req, res) => {
 const getEventById = async (req, res) => {
   try {
     await eventModel.findById(
-      { _id: ObjectId(req.body._id) },
+      { _id: ObjectId(req.body.id) },
       (error, result) => {
         if (error) throw error;
         res
@@ -45,7 +45,7 @@ const PostnewEvent = async (req, res) => {
 const deleteEventPost = async (req, res) => {
   try {
     await eventModel.findOneAndDelete(
-      { _id: ObjectId(req.body._id) },
+      { _id: ObjectId(req.body.id) },
       (error, result) => {
         if (error) throw error;
         res
@@ -60,8 +60,8 @@ const deleteEventPost = async (req, res) => {
 
 const updateEventPost = async (req, res) => {
   try {
-    eventModel.findByIdAndUpdate(
-      { _id: ObjectId(req.body) },
+    await eventModel.findByIdAndUpdate(
+      { _id: ObjectId(req.params.id) },
       { $set: req.body },
       (error, result) => {
         if (error) throw error;

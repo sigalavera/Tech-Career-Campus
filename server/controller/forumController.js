@@ -1,8 +1,47 @@
-const ForumSchema = require('../models/forumModel')
+const ForumModel = require("../models/forumModel");
+const StaffModel = require("../models/staffModel");
+const StudentModel = require("../models/studentModel");
 
+
+const messagesByStaff = async (req, res) => {
+  const staff = await StaffModel.findById(req.body.id);
+  const newMessages = new ForumModel({
+    massage: req.body.message,
+    authorByStaff: staff._id,
+  });
+  try {
+    await newMessages.save();
+    staff.messages.push(newMessages);
+    await staff.save();
+    res
+      .status(201)
+      .json({ message: "create new message success", data: newMessages });
+  } catch (error) {
+    res.status(409).json({ message: "create new message filed", error: error });
+  }
+};
+
+const messagesByStudent = async (req, res) => {
+  const student = await StudentModel.findById(req.body.id);
+  const newMessages = new ForumModel({
+    massage: req.body.message,
+    authorByStaff: student._id,
+  });
+  try {
+    await newMessages.save();
+    student.messages.push(newMessages);
+    await student.save();
+
+    res
+      .status(201)
+      .json({ message: "create new message success", data: newMessages });
+  } catch (error) {
+    res.status(409).json({ message: "create new message filed", error: error });
+  }
+};
 const getAllMessages = async (req, res) => {
     try {
-          await ForumSchema.find({}, (err, result) => {
+          await ForumModel.find({}, (err, result) => {
             if (err) console.log(err);
             res.json({ massage: "success", data: result })
         })
@@ -11,37 +50,23 @@ const getAllMessages = async (req, res) => {
     }
 }
 
-const addNewMessage = async (req, res) => {
-    try {
-       await ForumSchema.insertMany(
-            req.body.forum,
-            (err, result) => {
-                if (err) console.log(err);
-                res.json({ massage: "add massage", data: result });
-            })
-    } catch (err) {
-        res.json({ massage: "adding massage failed", error: err });
-    }
-}
-
-
 const deleteMessage = async (req, res) => {
     try {
-
-        await ForumSchema.findByIdAndDelete(req.params.id, (err, result) => {
+        await ForumModel.findByIdAndDelete(req.params.id, (err, result) => {
             if (err) throw err;
             res.json({ massage: "delete student success"  })
         })
 
     }
     catch (err) {
-        res.json({ massage: "problem with delete", error: err });
+        res.json({ massage: "problem with update", error: err });
 
     }
 }
 
 module.exports = {
-    getAllMessages,
-    addNewMessage,
-    deleteMessage
-}
+  messagesByStaff,
+  messagesByStudent,
+  getAllMessages,
+  deleteMessage
+};

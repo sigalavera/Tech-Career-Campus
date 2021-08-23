@@ -9,23 +9,14 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
-<<<<<<< HEAD
-const routeStudent = require("./route/studentRouting");
-const routeCourse = require("./route/courseRouting");
-const routeStaff = require("./route/staffRouting");
-const routeForum = require('./route/forumRouting');
-const routeSchedule = require('./route/scheduleRouting');
-const routeEvent = require('./route/eventsRouting');
-const db = require("./DB");
-=======
 
 //import route
 const routeStudent = require('./route/studentRouting');
 const routeCourse = require('./route/courseRouting')
 const routeStaff = require('./route/staffRouting')
-const routeMessage = require('./route/messagesRouting')
+const routeForum = require('./route/ForumRouting')
 const routeSchedule = require('./route/classScheduleRouting')
->>>>>>> main
+const routeEvent = require('./route/eventsRouting')
 
 //DB connection
 const db = require('./DB');

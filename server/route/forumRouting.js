@@ -1,14 +1,11 @@
-const express = require('express');
-const router = express.Router()
-const forumCtrl = require('../controller/forumController')
-
-router.get('/',forumCtrl.getAllMessages)
-
-router.post('/',forumCtrl.addNewMessage)
-
-router.delete('/:id',forumCtrl.deleteMessage)
-  
+const express = require("express");
+const router = express.Router();
+const messagesController = require("../controller/forumController");
 
 
+router.post("/staff", messagesController.messagesByStaff);
+router.post("/student", messagesController.messagesByStudent);
+router.get("/", messagesController.getAllMessages);
+router.delete("/:id", messagesController.deleteMessage);
 
-module.exports = router
+module.exports = router;

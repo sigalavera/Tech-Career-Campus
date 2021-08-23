@@ -56,13 +56,10 @@ const updateStaffById = async (req,res) =>{
 }
 
 module.exports = {
-<<<<<<< HEAD
-     addNewStaff ,
+     addNewStaff,
      getAllStaff,
      getAllStaffById,
      deleteStaffById,
      updateStaffById
-=======
-     addNewStaff,
->>>>>>> main
+
 };
