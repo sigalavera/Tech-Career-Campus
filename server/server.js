@@ -12,6 +12,7 @@ app.use(express.urlencoded({extended:true}))
 const routeStudent = require("./route/studentRouting");
 const routeCourse = require("./route/courseRouting")
 const routeStaff = require("./route/staffRouting")
+const routeMassage = require("./route/messagesRouting")
 const db = require("./DB");
 
 db.on("error", () => {
@@ -22,6 +23,8 @@ db.on("error", () => {
 app.use('/api/student',routeStudent);
 app.use('/api/course',routeCourse);
 app.use('/api/staff',routeStaff);
+app.use('/api/massage',routeMassage);
+
 app.listen(PORT, () => {
     console.log(
         `${chalk.green("tech_career")} ${chalk.yellow(

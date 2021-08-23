@@ -41,8 +41,9 @@ const staffSchema = new Schema(
       default: "",
     },
     courses: [{ type: Schema.Types.ObjectId, ref: "course"}],
-    event: [{ type: Schema.Types.ObjectId, ref: "event" }],
-    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "massage" }],
+    events: [{ type: Schema.Types.ObjectId, ref: "event" }],
+    messages: [{ type: Schema.Types.ObjectId, ref: "massage" }],
+    Students: [{ type: Schema.Types.ObjectId, ref: "student" }]
   },
   { timestamps: true }
 );
