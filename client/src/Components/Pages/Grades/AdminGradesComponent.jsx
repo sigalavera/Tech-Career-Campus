@@ -9,6 +9,7 @@ const AdminGradesComponent = () => {
       .then((response) => response.json())
       .then((response) => setStudents(response.data));
   }, []);
+
   const [studentInfo, setStudentInfo] = useState({
     isOpen: false,
     student: {},

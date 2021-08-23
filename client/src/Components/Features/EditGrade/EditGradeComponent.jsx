@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./EditGradeComponent.css";
 
 const EditGradeComponent = ({ student, handleFnc }) => {
-  console.log(student);
   const [editGrade, setEditGrade] = useState({isEdit:false, filed:""});
 
   return (
@@ -39,6 +38,13 @@ const EditGradeComponent = ({ student, handleFnc }) => {
           </div>
         );
       })}
+      <form>
+        <label>Test name</label>
+        <input type={"text"} placeholder={"Test name"} />
+        <label>Grade</label>
+        <input type={"number"} placeholder={"Grade"} />
+        <button onClick={(e)=> e.preventDefault()}>Add test</button>
+      </form>
       <button onClick={() => handleFnc()}>סגור</button>
     </div>
   );
