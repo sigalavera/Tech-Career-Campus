@@ -3,13 +3,8 @@ const StaffModel = require("../models/staffModel");
 
 const addNewStudent = async (req, res) => {
   try {
-    // const staff = await StaffModel.findById(req.params.id);
     await StudentModel.insertMany(req.body, async (err, result) => {
       if (err) console.log(err);
-    //  await staff.find({ $gt: result });
-    //   await staff.save();
-    //  StaffModel.findById(req.params.id).updateOne({Students: result});
-      // console.log(staff);
       res.status(200).json({ massage: "create Student success!", data: result })
     });
   } catch (err) {
