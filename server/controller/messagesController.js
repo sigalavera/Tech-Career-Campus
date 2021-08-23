@@ -13,7 +13,6 @@ const messagesByStaff = async (req, res) => {
     await newMessages.save();
     staff.messages.push(newMessages);
     await staff.save();
-
     res
       .status(201)
       .json({ message: "create new message success", data: newMessages });

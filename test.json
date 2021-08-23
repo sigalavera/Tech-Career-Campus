@@ -26,7 +26,8 @@
             
             "summery":"HTML- Hyper Text Markup Language היא שפה שמאפשרת הצגת מידע ברשת האינטרנט מה שאנחנו רואים כאשר אנו צופים בדף אינטרנט זה תרגום של דף (html) על ידי הדפדפן שלנו.   ",
 
-            "link":[{"tasks":"https://drive.google.com/drive/folders/1in5rW54YLDeHC3-Cfprj_d6IqERQ5zHP" ,"Presentations":"https://drive.google.com/drive/folders/1n3egnu1vI5vweCm0HzMQc6MuYS1Js1Ug" ,"StudyAid":""}]
+            "link":[{"tasks":"https://drive.google.com/drive/folders/1in5rW54YLDeHC3-Cfprj_d6IqERQ5zHP" ,"Presentations":"https://drive.google.com/drive/folders/1n3egnu1vI5vweCm0HzMQc6MuYS1Js1Ug" ,"StudyAid":""}],
+            "isDone":false
           },
           {
             "nameSubject": "css",
@@ -84,7 +85,8 @@
             
             "summery":"מדורגים עיצוב גיליונות . Cascading Style Sheets - CSS  היא שפת עיצוב שמגדירה את תבנית העיצוב של מסמכיHTML .CSS מטפלת בגופנים, צבעים, גבולות, שורות, גובה, רוחב, תמונות רקע, מיקום מתקדם ודברים רבים נוספים ",
 
-            "link":[{"tasks":"https://drive.google.com/drive/folders/1in5rW54YLDeHC3-Cfprj_d6IqERQ5zHP" ,"Presentations":"https://drive.google.com/drive/folders/1ScBS1FSBZNG6u2cQp4P9Hyoohs83qz6Q" ,"StudyAid":""}]
+            "link":[{"tasks":"https://drive.google.com/drive/folders/1in5rW54YLDeHC3-Cfprj_d6IqERQ5zHP" ,"Presentations":"https://drive.google.com/drive/folders/1ScBS1FSBZNG6u2cQp4P9Hyoohs83qz6Q" ,"StudyAid":""}],
+            "isDone":false
           },
 
           {
@@ -151,7 +153,8 @@
             
             "summery":",(JS) JavaScript שפת סקריפט מבוססת אובייקטים.  כלומר, היא מחולקת לאובייקטים וכל אובייקט הוא מכלול של פונקציות (מתודות) ותכונות שפת JavaScript  מאפשרת למפתחים להטביע קטעי סקריפט ('תוכניות קטנות') בתוך מסמכי  HTML ובכך להפוך את הדפים לדינמיים יותר.JavaScript הייתה מיועדת לצד הלקוח, אמנם כיום ניתן לראות שימוש נרחב יותר גם בצד שרת",
 
-            "link":[{"tasks":"https://drive.google.com/drive/folders/1n0-1KSLAqyZNnGlFsUqN-aFjIsp9CMjd" ,"Presentations":"https://drive.google.com/drive/folders/1n0-1KSLAqyZNnGlFsUqN-aFjIsp9CMjd" ,"StudyAid":""}]
+            "link":[{"tasks":"https://drive.google.com/drive/folders/1n0-1KSLAqyZNnGlFsUqN-aFjIsp9CMjd" ,"Presentations":"https://drive.google.com/drive/folders/1n0-1KSLAqyZNnGlFsUqN-aFjIsp9CMjd" ,"StudyAid":""}],
+            "isDone":false
           },
           {
             "nameSubject": "javascript ES6 ",
@@ -225,7 +228,8 @@
             
             "summery":"נתחיל בהתחלה. ES6 היא הגירסא הבאה של JavaScript",
 
-            "link":[{"tasks":"https://drive.google.com/drive/folders/1kV6r7IYvAX-ydpVDPBOkD7rDzJQOY4q7" ,"Presentations":"https://drive.google.com/drive/folders/1FubPSFlVF0ZwwPPqZJHyrn6qzO6SYtJ7" ,"StudyAid":""}]
+            "link":[{"tasks":"https://drive.google.com/drive/folders/1kV6r7IYvAX-ydpVDPBOkD7rDzJQOY4q7" ,"Presentations":"https://drive.google.com/drive/folders/1FubPSFlVF0ZwwPPqZJHyrn6qzO6SYtJ7" ,"StudyAid":""}],
+            "isDone":false
           },
          {
             "nameSubject": "typescript",
@@ -255,7 +259,8 @@
             
             "summery":" typescript היא סוג של javascript  שמאפשר להשתמש בתכנות מונחה עצמים כבר היום ב-javascript  בדומה לשפות כדוגמת, C, Java ו- . PHP בין התכונות שהיא מוסיפה,, static typing  תמיכה במחלקות ותמיכה במודולים ובדקורטורים.typescript  הוא סופר-סט(superset)  של javascript  כלומר, הקוד מבוסס על, javascript וחייב לעבור קומפילציה (תרגום) ל-javascript  כדי שהדפדפנים יבינו אותו מפני שדפדפנים מבינים  javascript בלבד.",
 
-            "link":[{"tasks":"https://drive.google.com/drive/folders/1L_c6RNdhxdncAaOHuOezCc4ASW_G6YhT" ,"Presentations":"https://drive.google.com/drive/folders/1QF-h49rInPB0MEv--IBtVmPPWQw17qKh" ,"StudyAid":""}]
+            "link":[{"tasks":"https://drive.google.com/drive/folders/1L_c6RNdhxdncAaOHuOezCc4ASW_G6YhT" ,"Presentations":"https://drive.google.com/drive/folders/1QF-h49rInPB0MEv--IBtVmPPWQw17qKh" ,"StudyAid":""}],
+            "isDone":false
           },
           
           {
@@ -342,7 +347,8 @@
           
           "summery":"NET Framework. היא שכבת תוכנה של מיקרוסופט שבאמצעותה מקודדות ומורצות תוכנות אחרות. שכבה זו מספקת לתוכנות שרצות מעליה סט כלים ושירותים כגון: ניהול זיכרון, שליטה בהתקני קלט/פלט, הצפנת הודעות וכולי, כך שהמתכנתים אינם צריכים לכתוב ספריות עזר המספקות שירותים אלה, אלא רק את הלוגיקה העיקרית של התוכנה.",
 
-          "link":[{"tasks":"https://drive.google.com/drive/folders/1nQZ-mOTVrrdJoZRYMgwgvBF8N6vl9u3N" ,"Presentations":"https://drive.google.com/drive/folders/1WM-WXNsYdOHwWUV39QO404WapusX5Xn_" ,"StudyAid":""}]
+          "link":[{"tasks":"https://drive.google.com/drive/folders/1nQZ-mOTVrrdJoZRYMgwgvBF8N6vl9u3N" ,"Presentations":"https://drive.google.com/drive/folders/1WM-WXNsYdOHwWUV39QO404WapusX5Xn_" ,"StudyAid":""}],
+          "isDone":false
         },
         {
             "nameSubject": "React",
@@ -397,7 +403,8 @@
             
             "summery":"פותחה לראשונה על ידי חברת פייסבוק ועדיין התומכת הראשית שלה.ספרייה מבוססת ג'אווהסקריפט המיועדת לצד הלקוח(front-end)ריאקט מאפשרת פיתוח לפלטפורמות שונות כמו דפדפן, מובייל ודקסטופ. עם זאת, ריאקט מפותחת ברישיון קוד פתוח וקוד המקור שלה נוכח בגיטהאב וניתן לעיון חופשי.  בריאקט ישנן קומפוננטות רבות מוכנות לשימוש, מה שמאפשר ליצור בקלות אפליקציות מורכבות באמצעות הקומפוננטות שמפתחים אחרים פיתחו ומאפשר פיתוח נוח, מהיר ופשוט.",
 
-            "link":[{"tasks":"https://drive.google.com/drive/folders/1K7p4xKz2KjbBmZMGdoWjVQWAUDhLM8z-" ,"Presentations":"https://drive.google.com/drive/folders/1zY23LHnxfuXTby9xxEzS4tJxQOUT5nu2" ,"StudyAid":"https://drive.google.com/drive/folders/11rn-glco_-RyXr2yJIT9128tG9Cmj4Tu"}]
+            "link":[{"tasks":"https://drive.google.com/drive/folders/1K7p4xKz2KjbBmZMGdoWjVQWAUDhLM8z-" ,"Presentations":"https://drive.google.com/drive/folders/1zY23LHnxfuXTby9xxEzS4tJxQOUT5nu2" ,"StudyAid":"https://drive.google.com/drive/folders/11rn-glco_-RyXr2yJIT9128tG9Cmj4Tu"}],
+            "isDone":false
           },
           
           {
@@ -444,7 +451,8 @@
           
           "summery":"בעבר היה ניתן להבדיל בין שימוש בקומפננטות מחלקה לקומפננטות פונקציה על ידי   עיקרון מאוד  פשוט, life cycle האם יש צורך בניהול ה  של הקומפננטה.",
 
-          "link":[{"tasks":"https://drive.google.com/drive/folders/1K7p4xKz2KjbBmZMGdoWjVQWAUDhLM8z-" ,"Presentations":"https://drive.google.com/drive/folders/1zY23LHnxfuXTby9xxEzS4tJxQOUT5nu2" ,"StudyAid":"https://drive.google.com/drive/folders/11rn-glco_-RyXr2yJIT9128tG9Cmj4Tu"}]
+          "link":[{"tasks":"https://drive.google.com/drive/folders/1K7p4xKz2KjbBmZMGdoWjVQWAUDhLM8z-" ,"Presentations":"https://drive.google.com/drive/folders/1zY23LHnxfuXTby9xxEzS4tJxQOUT5nu2" ,"StudyAid":"https://drive.google.com/drive/folders/11rn-glco_-RyXr2yJIT9128tG9Cmj4Tu"}],
+          "isDone":false
         },
         {
             "nameSubject": "node-js",
@@ -494,7 +502,8 @@
             
             "summery":"Node.js היא סביבת ריצה לשפת JavaScript שנכתבה ב-C++ ומבוססת על מנוע V8. היא תוכננה לכתיבת אפליקציות רשת סקילאביליות כגון שרתי HTTP. Node.js מאפשרת לקוד JavaScript לרוץ ללא צורך בדפדפן, מה שמאפשר לה לשמש כשפת צד שרת. הגרסה הראשונה של התוכנה פותחה בשנת 2009",
   
-            "link":[{"tasks":"" ,"Presentations":"" ,"StudyAid":""}]
+            "link":[{"tasks":"" ,"Presentations":"" ,"StudyAid":""}],
+            "isDone":false
           },
           {
             "nameSubject": "MERN",
@@ -509,8 +518,19 @@
             
             "summery":"MEAN הוא מקבץ תוכנות חינמי ובעל קוד פתוח שכתוב בשפת התכנות JavaScript, ונועד לבניית אתרי אינטרנט דינאמיים ויישומי רשת. MEAN הוא שילוב של Angular.js, Express.js, MongoDB, ‏ Node.js",
   
-            "link":[{"tasks":"" ,"Presentations":"" ,"StudyAid":""}]
+            "link":[{"tasks":"" ,"Presentations":"" ,"StudyAid":""}],
+            "isDone":false
           }
     ]
 }
+
+
+
+
+
+
+
+
+
+
 
