@@ -14,6 +14,5 @@ const addNewStaff = async (req, res) => {
 
 
 module.exports = {
-     addNewStaff ,
-
+     addNewStaff,
 };
