@@ -1,5 +1,5 @@
-// const dotenv = require("dotenv");
-// dotenv.config();
+const dotenv = require("dotenv");
+dotenv.config();
 const dbConnection = process.env.dbConnection ;
 const mongoose = require('mongoose')
 const chalk = require('chalk')
