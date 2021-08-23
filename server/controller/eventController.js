@@ -1,7 +1,7 @@
 const eventModel = require("../models/eventModel");
 const { ObjectId } = require("mongodb");
 
-async function getAllEventPost(req, res) {
+const getAllEventPost = async (req, res) => {
   try {
     await eventModel.find({}, (error, result) => {
       if (error) throw error;
@@ -12,7 +12,7 @@ async function getAllEventPost(req, res) {
   }
 }
 
-async function getEventById(req, res) {
+const getEventById = async (req, res) => {
   try {
     await eventModel.findById(
       { _id: ObjectId(req.body._id) },
@@ -30,7 +30,7 @@ async function getEventById(req, res) {
   }
 }
 
-async function PostnewEvent(req, res) {
+const PostnewEvent = async (req, res) => {
   try {
     await eventModel.insertMany(req.body, (error, result) => {
       if (error) throw error;
@@ -44,7 +44,7 @@ async function PostnewEvent(req, res) {
   }
 }
 
-async function deleteEventPost(req, res) {
+const deleteEventPost = async (req, res) => {
   try {
     await eventModel.findOneAndDelete(
       { _id: ObjectId(req.body._id) },
@@ -60,10 +60,10 @@ async function deleteEventPost(req, res) {
   }
 }
 
-async function updateEventPost(req, res) {
+const updateEventPost = async (req, res) => {
   try {
     eventModel.findByIdAndUpdate(
-      { _id: ObjectId(req.params._id) },
+      { _id: ObjectId(req.body) },
       { $set: req.body },
       (error, result) => {
         if (error) throw error;

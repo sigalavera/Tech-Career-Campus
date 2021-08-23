@@ -1,4 +1,4 @@
-const ForumSchema = require('../models/messagesModel')
+const ForumSchema = require('../models/forumModel')
 
 const getAllMessages = async (req, res) => {
     try {
@@ -35,7 +35,7 @@ const deleteMessage = async (req, res) => {
 
     }
     catch (err) {
-        res.json({ massage: "problem with update", error: err });
+        res.json({ massage: "problem with delete", error: err });
 
     }
 }
