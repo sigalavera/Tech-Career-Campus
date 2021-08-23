@@ -1,4 +1,4 @@
-const ScheduleModel = require('../models/scheduleModel');
+const ScheduleModel = require('../models/classScheduleModel');
 
 const getAllClasses = async (req, res) => {
 
@@ -37,8 +37,21 @@ const updateClasses = async (req, res) => {
     }
 }
 
+const deleteClasses = async (req, res) => {
+    try {
+        await ScheduleModel.findByIdAndDelete(req.body.id , taken ,(err, result) => {
+            if (err) throw err,
+                res.status(200).json({ massage: "delete class success",data: result})
+        })
+    }
+    catch (err) {
+        res.json({ massage: "delete class failed", error: err })
+    }
+}
+
 module.exports = {
     getAllClasses,
     updateClasses,
-    postClasses
+    postClasses,
+    deleteClasses
 }
