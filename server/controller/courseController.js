@@ -8,7 +8,7 @@ const addNewCourse = async (req, res) => {
 
     });
   } catch (err) {
-    res.status(500).json({ massage:  "creat course field", error: err });
+    res.status(500).json({ massage:  "createing  course field", error: err });
   }
 };
 
