@@ -1,6 +1,6 @@
 import Footer from "../Footer/FooterComponent";
 import Header from "../Header/HeaderComponent";
-// import Login from "../../Pages/Login/LoginComponent";
+
 
 const Layout = ({children})=> {
     return (
@@ -8,7 +8,7 @@ const Layout = ({children})=> {
         <Header />
        
         {children}
-         <Login />
+        
         <Footer />
         
       </div>
