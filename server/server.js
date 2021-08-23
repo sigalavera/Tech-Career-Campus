@@ -15,7 +15,7 @@ const routeStudent = require('./route/studentRouting');
 const routeCourse = require('./route/courseRouting')
 const routeStaff = require('./route/staffRouting')
 const routeMessage = require('./route/messagesRouting')
-const routeSchedule = require('./route/scheduleRouting')
+const routeSchedule = require('./route/classScheduleRouting')
 
 //DB connection
 const db = require('./DB');
