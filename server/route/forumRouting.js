@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const messagesController = require("../controller/messagesController");
+const messagesController = require("../controller/forumController");
 
 
 router.post("/staff", messagesController.messagesByStaff);

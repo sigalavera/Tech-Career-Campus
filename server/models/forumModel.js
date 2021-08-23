@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const messagesSchema = new Schema(
+const forumSchema = new Schema(
   {
     massage: {
       type: String,
@@ -12,5 +12,5 @@ const messagesSchema = new Schema(
   { timestamps: true }
 );
 
-const Messages = mongoose.model("messages", messagesSchema);
-module.exports = Messages;
+const Forum = mongoose.model("forum", forumSchema);
+module.exports = Forum;

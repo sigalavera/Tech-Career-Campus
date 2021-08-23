@@ -14,8 +14,9 @@ app.use(express.urlencoded({extended:true}))
 const routeStudent = require('./route/studentRouting');
 const routeCourse = require('./route/courseRouting')
 const routeStaff = require('./route/staffRouting')
-const routeMessage = require('./route/messagesRouting')
+const routeForum = require('./route/ForumRouting')
 const routeSchedule = require('./route/classScheduleRouting')
+const routeEvent = require('./route/eventsRouting')
 
 //DB connection
 const db = require('./DB');
@@ -29,8 +30,9 @@ db.on('error', () => {
 app.use('/api/student',routeStudent);
 app.use('/api/course',routeCourse);
 app.use('/api/staff',routeStaff);
-app.use('/api/message',routeMessage);
+app.use('/api/forum',routeForum);
 app.use('/api/schedule',routeSchedule);
+app.use('/api/event', routeEvent);
 
 app.listen(PORT, () => {
     console.log(
