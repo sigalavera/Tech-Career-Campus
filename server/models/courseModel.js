@@ -29,26 +29,26 @@ const courseSchema = new Schema(
               {
                 tasks: {
                   type: String,
-                  default:""
+                  default: "",
                 },
                 Presentations: {
                   type: String,
-                  default:""
+                  default: "",
                 },
                 StudyAid: {
                   type: String,
-                  default:""
+                  default: "",
                 },
               },
             ],
           },
+          isDone: {
+            type: Boolean,
+            required: true,
+            default: false,
+          },
         },
       ],
-      require: false,
-    },
-    isDone: {
-      type: Boolean,
-      required: false,
     },
     coursesCreator: [{ type: Schema.Types.ObjectId, ref: "staff" }],
   },
