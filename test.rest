@@ -6,7 +6,6 @@ POST http://localhost:8080/api/massage/staff
 {
   "id":"6122ae159fef449eb84734b7",
    "message":"dhcfbkjdbckw"
-
 }
 
 

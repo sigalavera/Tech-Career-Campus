@@ -2,7 +2,8 @@ const MessagesModel = require("../models/messagesModel");
 const StaffModel = require("../models/staffModel");
 const StudentModel = require("../models/studentModel");
 
-const MessagesByStaff = async (req, res) => {
+
+const messagesByStaff = async (req, res) => {
   const staff = await StaffModel.findById(req.body.id);
   const newMessages = new MessagesModel({
     massage: req.body.message,
@@ -21,7 +22,7 @@ const MessagesByStaff = async (req, res) => {
   }
 };
 
-const MessagesByStudent = async (req, res) => {
+const messagesByStudent = async (req, res) => {
   const student = await StudentModel.findById(req.body.id);
   const newMessages = new MessagesModel({
     massage: req.body.message,
@@ -39,8 +40,34 @@ const MessagesByStudent = async (req, res) => {
     res.status(409).json({ message: "create new message filed", error: error });
   }
 };
+const getAllMessages = async (req, res) => {
+    try {
+          await MessagesModel.find({}, (err, result) => {
+            if (err) console.log(err);
+            res.json({ massage: "success", data: result })
+        })
+    } catch (err) {
+        res.json({ massage: "problem in database", error: err });
+    }
+}
+
+const deleteMessage = async (req, res) => {
+    try {
+        await MessagesModel.findByIdAndDelete(req.params.id, (err, result) => {
+            if (err) throw err;
+            res.json({ massage: "delete student success"  })
+        })
+
+    }
+    catch (err) {
+        res.json({ massage: "problem with update", error: err });
+
+    }
+}
 
 module.exports = {
-  MessagesByStaff,
-  MessagesByStudent,
+  messagesByStaff,
+  messagesByStudent,
+  getAllMessages,
+  deleteMessage
 };
