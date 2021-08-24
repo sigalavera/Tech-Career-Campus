@@ -173,7 +173,7 @@ const Login = () => {
                         value="Continue"
                         onClick={(e) => {
                           e.preventDefault();
-                          dispatch(getUser(loginInfo));
+                          // dispatch(getUser(loginInfo));
                         }}
                       />
                     </div>
