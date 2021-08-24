@@ -16,7 +16,6 @@ const routeCourse = require('./route/courseRouting');
 const routeStaff = require('./route/staffRouting');
 const routeForum = require('./route/forumRouting');
 const {isToken} = require('./controller/authorization/isToken');
-// const autoRole = require('./controller/authorization/autoRole');
 const routeLoginRegister = require('./route/loginRouting');
 const classScheduleController = require('./controller/classScheduleController')
 const routeEvent = require('./route/eventsRouting')
