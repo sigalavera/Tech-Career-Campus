@@ -9,7 +9,7 @@ const login = async (req, res) => {
     if(req.body.role === "Staff"){
         const {errors, isValid } = validateLoginInput(req.body);
         if (!isValid)
-        return res.status(404).json({ message: "staff doesn't exist.", err:errors });
+        return res.status(404).json({ message: "there is error with email or password.", err:errors });
   
         const { email, password } = req.body;
         try {
@@ -17,7 +17,7 @@ const login = async (req, res) => {
 
           const isPasswordCorrect = await bcrypt.compare(password, staff.password);
           if (!isPasswordCorrect)
-            res.status(400).json({ message: "Invalid credentials" });
+            res.status(400).json({ message: "wrong password!" });
 
 
           let payload =
@@ -54,17 +54,12 @@ const login = async (req, res) => {
           const student = await StudentModel.findOne({ email });
           if (!isValid){
             return res.status(404).json({ message: "student doesn't exist." ,err: errors});
-          }
-            
+          }          
       
           const isPasswordCorrect = await bcrypt.compare(password, student.password);
           if (!isPasswordCorrect)
-            res.status(400).json({ message: "Invalid credentials" });
+            res.status(400).json({ message: "wrong password!" });
 
-      
-          if (!password === student.password){
-           res.status(400).json({ message: "Invalid credentials" }); 
-          } 
       
           const payload =
           { 
