@@ -1,8 +1,4 @@
 import React,{useState} from 'react'
-import {
-    Route,
-    Switch
-} from "react-router-dom";
 import CourseSchedule from '../Components/Pages/CourseSchedule/CourseScheduleComponent';
 
 import DailySchedule from '../Components/Pages/DailySchedule/DailyScheduleComponent';
@@ -16,7 +12,7 @@ import Tab from 'react-bootstrap/Tab'
 const MyCourseRouting = () => {
     const [linkName, setLinkName] = useState("")
     // temp role for switch component
-    const role = "Admin"
+    const role = "student"
     return (
         <>
             <Tabs
@@ -38,7 +34,7 @@ const MyCourseRouting = () => {
                 <Tab eventKey="syllabus" title="סילבוס" >
                     <Syllabus />
                 </Tab>
-                <Tab eventKey="edit-course-schedual" title="סגל" disabled={role==="student"?false:true}>
+                <Tab eventKey="edit-course-schedual" title="סגל" disabled={role ==="student" ? false : true}>
                     <AdminGradesComponent />
                 </Tab>
             </Tabs>
