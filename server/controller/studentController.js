@@ -1,7 +1,6 @@
 const StudentModel = require('../models/studentModel')
 const StaffModel = require('../models/staffModel')
-const Course = require('../models/courseModel')
-const mongodb = require('mongodb')
+
 
 const addNewStudent = async (req, res) => {
   const staff = await StaffModel.findById(req.body.id);
@@ -48,7 +47,7 @@ const getStudentGradeById = async (req, res) => {
 }
 const addStudentTestById = async (req, res) => {
   try {
-    StudentModel.updateOne({ _id:mongodb.ObjectID(req.body._id) }, { $push: { "tests": { name: req.body.name, grade: req.body.grade } } }, (error, result) => {
+    StudentModel.findByIdAndUpdate(req.body.id, { $push: { "tests": { name: req.body.name, grade: req.body.grade } } }, (error, result) => {
       if (error) throw error
       res.status(200).json({ massage: "add test to a student by name was a success", data: result.tests })
 
@@ -60,7 +59,7 @@ const addStudentTestById = async (req, res) => {
 }
 const updateStudentTestById = async (req, res) => {
   try {
-    StudentModel.updateOne({ _id:mongodb.ObjectID(req.params._id) , tests: { $elemMatch: { name:req.body.name} } }, { $set: { "tests.$.grade": req.body.grade } }, (error, result) => {
+    StudentModel.findOneAndUpdate({ _id: req.params._id, tests: { $elemMatch: { _id: req.body.id } } }, { $set: { "tests.$.grade": req.body.grade } }, (error, result) => {
       if (error) throw error
       res.status(200).json({ massage: "updating a student test was a success", data: result.tests })
 
@@ -72,7 +71,7 @@ const updateStudentTestById = async (req, res) => {
 }
 const deleteStudentTestById = async (req, res) => {
   try {
-    StudentModel.updateOne({ _id:mongodb.ObjectID(req.params._id) }, { $pull: { tests: { _id:mongodb.ObjectID(req.body._id) } } }, (error, result) => {
+    StudentModel.findByIdAndUpdate(req.params._id, { $pull: { tests: { _id: req.body.id } } }, (error, result) => {
       if (error) throw error
       res.status(200).json({ massage: "deleting a student test was a success", data: result.tests })
 

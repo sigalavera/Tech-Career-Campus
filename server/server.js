@@ -14,13 +14,13 @@ app.use(express.urlencoded({extended:true}))
 const routeStudent = require('./route/studentRouting');
 const routeCourse = require('./route/courseRouting');
 const routeStaff = require('./route/staffRouting');
-const routeMessage = require('./route/messagesRouting');
+const routeForum = require('./route/forumRouting');
 const routeSchedule = require('./route/scheduleRouting');
 const {isToken} = require('./controller/authorization/isToken');
 // const autoRole = require('./controller/authorization/autoRole');
 const routeLoginRegister = require('./route/loginRouting');
-
-
+const routeSchedule = require('./route/classScheduleRouting')
+const routeEvent = require('./route/eventsRouting')
 
 //DB connection
 const db = require('./DB');
@@ -40,10 +40,11 @@ app.get('/api',isToken ,(req,res)=>{
 app.use('/api/student', routeStudent);
 app.use('/api/course',routeCourse);
 app.use('/api/staff',routeStaff);
-app.use('/api/message',routeMessage);
+app.use('/api/forum',routeForum);
 app.use('/api/schedule',routeSchedule);
 app.use('/api/login',routeLoginRegister);
 app.use('/api/staff/register',routeLoginRegister);
+app.use('/api/event', routeEvent);
 
 app.listen(PORT, () => {
     console.log(

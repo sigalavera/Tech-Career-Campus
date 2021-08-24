@@ -7,6 +7,6 @@ router.post('/', studentController.addNewStudent);
 router.get('/',isToken, studentController.getStudent);
 router.get('/gradesById', studentController.getStudentGradeById);
 router.post('/addTestById', studentController.addStudentTestById);
-router.post('/updateTest/:_id', studentController.updateStudentTestById);
+router.put('/updateTest/:_id', studentController.updateStudentTestById);
 router.delete('/deleteTest/:_id', studentController.deleteStudentTestById);
 module.exports = router;
