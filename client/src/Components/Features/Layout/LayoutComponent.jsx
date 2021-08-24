@@ -4,7 +4,7 @@ import Header from "../Header/HeaderComponent";
 
 
 const Layout = ({children})=> {
-  const user = false
+  const user = true
     return (
       <div>
         <Header />

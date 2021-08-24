@@ -1,8 +1,14 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editGrade } from "../../../Redux/actions/userActions";
 import "./EditGradeComponent.css";
 
 const EditGradeComponent = ({ student, handleFnc }) => {
-  const [editGrade, setEditGrade] = useState({isEdit:false, filed:""});
+  const [newGrade, setEditGrade] = useState({ isEdit: false, filed: "" });
+
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.user);
+  console.log(state);
 
   return (
     <div className="student-info">
@@ -13,14 +19,18 @@ const EditGradeComponent = ({ student, handleFnc }) => {
         return (
           <div key={index}>
             <h4>{test.name}</h4>
-            {editGrade.isEdit && editGrade.filed === test.name ? (
+            {newGrade.isEdit && newGrade.filed === test.name ? (
               <>
                 <input type="number" placeholder={test.grade} />
                 <i
                   // supposed to send update grade to server
-                  onClick={() =>
-                    setEditGrade({ isEdit: false, filed: test.name })
-                  }
+                  onClick={() => {
+                    dispatch(editGrade("612004466a18a679004e2f03"));
+                    setEditGrade({
+                      isEdit: false,
+                      filed: test.name,
+                    });
+                  }}
                   className="fas fa-check-square"
                 ></i>
               </>
@@ -43,7 +53,7 @@ const EditGradeComponent = ({ student, handleFnc }) => {
         <input type={"text"} placeholder={"Test name"} />
         <label>Grade</label>
         <input type={"number"} placeholder={"Grade"} />
-        <button onClick={(e)=> e.preventDefault()}>Add test</button>
+        <button onClick={(e) => e.preventDefault()}>Add test</button>
       </form>
       <button onClick={() => handleFnc()}>סגור</button>
     </div>
