@@ -42,7 +42,7 @@ const staffSchema = new Schema(
     },
     courses: [{ type: Schema.Types.ObjectId, ref: "course"}],
     events: [{ type: Schema.Types.ObjectId, ref: "event" }],
-    messages: [{ type: Schema.Types.ObjectId, ref: "massage" }],
+    messages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
     Students: [{ type: Schema.Types.ObjectId, ref: "student" }]
   },
   { timestamps: true }

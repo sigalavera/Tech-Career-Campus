@@ -58,7 +58,7 @@ const studentSchema = new Schema(
       ],
     },
     required:false,
-    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "messages" }],
+    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
   },
   { timestamps: true }
 );
