@@ -12,10 +12,13 @@ app.use(express.urlencoded({extended:true}))
 
 //import route
 const routeStudent = require('./route/studentRouting');
-const routeCourse = require('./route/courseRouting')
-const routeStaff = require('./route/staffRouting')
-const routeMessage = require('./route/messagesRouting')
+const routeCourse = require('./route/courseRouting');
+const routeStaff = require('./route/staffRouting');
+const routeForum = require('./route/forumRouting');
+const {isToken} = require('./controller/authorization/isToken');
+const routeLoginRegister = require('./route/loginRouting');
 const routeSchedule = require('./route/classScheduleRouting')
+const routeEvent = require('./route/eventsRouting')
 
 //DB connection
 const db = require('./DB');
@@ -25,12 +28,21 @@ db.on('error', () => {
     console.log(chalk.red('Connection error'));
 });
 
+
+app.get('/api',isToken ,(req,res)=>{
+    res.send("token page")
+})
+
+
 // use route
-app.use('/api/student',routeStudent);
+app.use('/api/student', routeStudent);
 app.use('/api/course',routeCourse);
 app.use('/api/staff',routeStaff);
-app.use('/api/message',routeMessage);
-app.use('/api/schedule',routeSchedule);
+app.use('/api/forum',routeForum);
+app.use('/api/login',routeLoginRegister);
+app.use('/api/staff/register',routeLoginRegister);
+app.use('/api/event', routeEvent);
+app.use('/api/schedule', routeSchedule);
 
 app.listen(PORT, () => {
     console.log(
@@ -39,4 +51,6 @@ app.listen(PORT, () => {
     )} ${chalk.blue(PORT)}`
     );
 });
+
+
 
