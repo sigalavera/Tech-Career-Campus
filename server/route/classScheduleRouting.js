@@ -7,5 +7,6 @@ router.get('/',scheduleCtrl.getAllClasses);
 router.put('/',scheduleCtrl.updateClasses);
 router.post('/',scheduleCtrl.postClasses);
 router.delete('/:',scheduleCtrl.deleteClasses)
+router.put('/updateClassesName',scheduleCtrl.updateClassesName)
 
 module.exports = router;
