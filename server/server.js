@@ -18,7 +18,7 @@ const routeForum = require('./route/forumRouting');
 const {isToken} = require('./controller/authorization/isToken');
 // const autoRole = require('./controller/authorization/autoRole');
 const routeLoginRegister = require('./route/loginRouting');
-const routeSchedule = require('./route/classScheduleRouting')
+const classScheduleController = require('./controller/classScheduleController')
 const routeEvent = require('./route/eventsRouting')
 
 //DB connection
@@ -43,6 +43,7 @@ app.use('/api/forum',routeForum);
 app.use('/api/login',routeLoginRegister);
 app.use('/api/staff/register',routeLoginRegister);
 app.use('/api/event', routeEvent);
+app.use('/api/classSchedule', routeEvent);
 
 app.listen(PORT, () => {
     console.log(
