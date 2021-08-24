@@ -62,8 +62,8 @@ const studentSchema = new Schema(
         required: false,
       },
     },
-    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "messages" }],
-    createBy: { type: Schema.Types.ObjectId, ref: "staff"},
+    required:false,
+    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
   },
   { timestamps: true }
 );
