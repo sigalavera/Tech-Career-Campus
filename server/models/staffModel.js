@@ -18,6 +18,7 @@ const staffSchema = new Schema(
     phone: {
       type: String,
       require: true,
+      
     },
     password: {
       type: String,
@@ -43,7 +44,7 @@ const staffSchema = new Schema(
     courses: [{ type: Schema.Types.ObjectId, ref: "course"}],
     events: [{ type: Schema.Types.ObjectId, ref: "event" }],
     messages: [{ type: Schema.Types.ObjectId, ref: "massage" }],
-    Students: [{ type: Schema.Types.ObjectId, ref: "student" }]
+    students: [{ type: Schema.Types.ObjectId, ref: "student" }]
   },
   { timestamps: true }
 );
