@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { editGrade } from "../../../Redux/actions/userActions";
 import EditGradeComponent from "../../Features/EditGrade/EditGradeComponent";
 
 const AdminGradesComponent = () => {

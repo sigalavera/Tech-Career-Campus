@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import CourseSchedule from '../Components/Pages/CourseSchedule/CourseScheduleComponent';
 
 import DailySchedule from '../Components/Pages/DailySchedule/DailyScheduleComponent';
@@ -10,7 +10,6 @@ import Tab from 'react-bootstrap/Tab'
 
 
 const MyCourseRouting = () => {
-    const [linkName, setLinkName] = useState("")
     // temp role for switch component
     const role = "student"
     return (
@@ -20,7 +19,7 @@ const MyCourseRouting = () => {
                 transition={false}
                 id="noanim-tab-example"
                 className="mb-3"
-                transition
+                
             >
                 <Tab eventKey="daily-schedule" title="לוז יומי">
                     <DailySchedule />
