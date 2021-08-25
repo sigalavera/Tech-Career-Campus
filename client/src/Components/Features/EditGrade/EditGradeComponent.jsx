@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { editGrade } from "../../../Redux/actions/userActions";
 import "./EditGradeComponent.css";
 
@@ -7,8 +7,7 @@ const EditGradeComponent = ({ student, handleFnc }) => {
   const [newGrade, setEditGrade] = useState({ isEdit: false, filed: "" });
 
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.user);
-  console.log(state);
+  
 
   return (
     <div className="student-info">

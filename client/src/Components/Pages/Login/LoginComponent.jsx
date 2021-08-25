@@ -1,27 +1,25 @@
 import React, { useState } from "react";
-import jwt_decode from "jwt-decode";
-import {getUser} from '../../../Redux/actions/userActions';
-import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../Redux/actions/userActions";
+import { useDispatch } from "react-redux";
 
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ errors }) => {
   const [loginInfo, setLoginInfo] = useState({
-    email:"",
-    password:""
+    email: "",
+    password: "",
+    role: "",
   });
-  const dispatch = useDispatch();
- const state = useSelector((state) => state.user);
- console.log(state);
 
- const handleChange = (e) => {
-   setLoginInfo({
-     ...loginInfo,
-     [e.target.name]: e.target.value,
-   });
- };
- 
- console.log(loginInfo)
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setLoginInfo({
+      ...loginInfo,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className="login">
       <div className="login-root">
@@ -150,21 +148,39 @@ const Login = () => {
                         onChange={(e) => handleChange(e)}
                         required
                       />
+                      <p className="errors">{errors?.email}</p>
                     </div>
                     <div className="field padding-bottom--24">
-                      <div className="grid--50-50">
-                        <label htmlFor="password">Password</label>
-                        <div className="reset-pass">
-                          <a href="#">Forgot your password?</a>
-                        </div>
-                      </div>
                       <input
                         type="password"
                         name="password"
                         onChange={(e) => handleChange(e)}
                         value={loginInfo.password}
+                        autoComplete="off"
                         required
                       />
+                      <p className="errors">{errors?.password}</p>
+                    </div>
+                    <div>
+                      <p>Login as</p>
+                      <label>
+                        <input
+                          type="radio"
+                          onChange={(e) => handleChange(e)}
+                          name="role"
+                          value="Student"
+                        />
+                        Student
+                      </label>
+                      <label>
+                        <input
+                          type="radio"
+                          onChange={(e) => handleChange(e)}
+                          name="role"
+                          value="Staff"
+                        />
+                        Staff
+                      </label>
                     </div>
                     <div className="field padding-bottom--24">
                       <input
@@ -173,7 +189,7 @@ const Login = () => {
                         value="Continue"
                         onClick={(e) => {
                           e.preventDefault();
-                          // dispatch(getUser(loginInfo));
+                          dispatch(getUser(loginInfo));
                         }}
                       />
                     </div>
