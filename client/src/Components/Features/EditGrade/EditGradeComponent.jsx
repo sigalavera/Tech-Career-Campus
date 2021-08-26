@@ -4,11 +4,25 @@ import { editGrade } from "../../../Redux/actions/userActions";
 import "./EditGradeComponent.css";
 
 const EditGradeComponent = ({ student, handleFnc }) => {
-  const [newGrade, setEditGrade] = useState({ isEdit: false, filed: "" });
-
+  const [editTest, setEditTest] = useState({ isEdit: false, testId: "" });
+  const [updateTest, setUpdateTest] = useState({
+    studentId: student._id,
+    gradeId: editTest.testId,
+    name: "",
+    grade: null,
+  });
   const dispatch = useDispatch();
   
-
+  const HandleChange = (e) =>{
+    setUpdateTest(
+      {
+        ...updateTest,
+        [e.target.name]: e.target.value
+      }
+    )
+  }
+  console.log(updateTest);
+  console.log(editTest);
   return (
     <div className="student-info">
       <h3>
@@ -18,16 +32,19 @@ const EditGradeComponent = ({ student, handleFnc }) => {
         return (
           <div key={index}>
             <h4>{test.name}</h4>
-            {newGrade.isEdit && newGrade.filed === test.name ? (
+            {editTest.isEdit && editTest.testId === test._id ? (
               <>
-                <input type="number" placeholder={test.grade} />
+                <input
+                  type="number"
+                  placeholder={test.grade}
+                  name="grade"
+                  onChange={(e) => HandleChange(e)}
+                />
                 <i
-                  // supposed to send update grade to server
                   onClick={() => {
                     dispatch(editGrade("612004466a18a679004e2f03"));
-                    setEditGrade({
+                    setEditTest({
                       isEdit: false,
-                      filed: test.name,
                     });
                   }}
                   className="fas fa-check-square"
@@ -37,9 +54,10 @@ const EditGradeComponent = ({ student, handleFnc }) => {
               <p>
                 {test.grade}
                 <i
-                  onClick={() =>
-                    setEditGrade({ isEdit: true, filed: test.name })
-                  }
+                  onClick={() => {
+                    setEditTest({ isEdit: true, testId: test._id });
+                    setUpdateTest({ ...updateTest, name: test.name });
+                  }}
                   className="far fa-edit"
                 ></i>
               </p>
