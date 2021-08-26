@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT || 8080;
-
 const chalk = require('chalk');
 const express = require('express');
 const cors = require('cors');
@@ -15,34 +14,27 @@ const routeStudent = require('./route/studentRouting');
 const routeCourse = require('./route/courseRouting');
 const routeStaff = require('./route/staffRouting');
 const routeForum = require('./route/forumRouting');
-const {isToken} = require('./controller/authorization/isToken');
-// const autoRole = require('./controller/authorization/autoRole');
 const routeLoginRegister = require('./route/loginRouting');
 const routeSchedule = require('./route/classScheduleRouting')
 const routeEvent = require('./route/eventsRouting')
+const isToken = require('./controller/authorization/isToken')
+const mainRout = require('./route/mainRouting')
+const hhh = require('./route/mainRouting')
 
 //DB connection
 const db = require('./DB');
-
-//Connection to DB field
 db.on('error', () => {
     console.log(chalk.red('Connection error'));
 });
 
-
-app.get('/api',isToken ,(req,res)=>{
-    res.send("token page")
-})
-
-
 // use route
-app.use('/api/student', routeStudent);
-app.use('/api/course',routeCourse);
-app.use('/api/staff',routeStaff);
-app.use('/api/forum',routeForum);
+app.use('/api/student' ,isToken, routeStudent);
+app.use('/api/course' , isToken,routeCourse);
+app.use('/api/staff', isToken,routeStaff);
+app.use('/api/forum', isToken,routeForum);
 app.use('/api/login',routeLoginRegister);
-app.use('/api/staff/register',routeLoginRegister);
-app.use('/api/event', routeEvent);
+app.use('/api/staff/register',isToken,routeLoginRegister);
+app.use('/api/event',isToken, routeEvent);
 
 app.listen(PORT, () => {
     console.log(

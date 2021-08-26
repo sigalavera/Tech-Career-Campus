@@ -38,7 +38,7 @@ const login = async (req, res) => {
             SECRET_KEY,
             { expiresIn: "1d" }
           );
-      
+        
           res.status(200).json({message:"success", result: token });
         } catch (err) {
           res.status(500).json({ message: "something went wrong", err:errors });
