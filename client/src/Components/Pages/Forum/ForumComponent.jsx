@@ -1,10 +1,28 @@
-import React from 'react'
-
-const Forum = ()=> {
-    return (
-        <div>
-           Forum 
-        </div>
-    )
-}
-export default Forum
+import React from "react";
+import "./forum.css";
+const Forum = () => {
+  const user = {
+    name: "yakov",
+    message: "how do i javascript",
+  };
+  return (
+    <div className="chat-container">
+      <ul className="chat-thread">
+        <li>Are we meeting today?</li>
+        <li>yes, what time suits you?</li>
+        <li>I was thinking after lunch, I have a meeting in the morning</li>
+      </ul>
+      <form className="chat-window">
+        <input
+          className="chat-window-message"
+          name="chat-window-message"
+          type="text"
+          autocomplete="off"
+          autofocus
+          placeholder='הקלד כאן...'
+        />
+      </form>
+    </div>
+  );
+};
+export default Forum;
