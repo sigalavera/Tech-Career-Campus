@@ -20,10 +20,10 @@ const login = async (req, res) => {
       }
 
       const isPasswordCorrect = await bcrypt.compare(password, staff.password)
-      
-      
+
+
       if (!isPasswordCorrect)
-        res.status(400).json({ errors: { password: "wrong password"} });
+        res.status(400).json({ errors: { password: "wrong password" } });
 
 
       let payload =
