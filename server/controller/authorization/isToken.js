@@ -19,10 +19,7 @@ const isToken = (req, res, next) => {
   }
 };
 
-
-<<<<<<< HEAD
 module.exports = isToken
-
 
 
 // const isToken = (req, res, next) => {
