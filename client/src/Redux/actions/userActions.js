@@ -2,11 +2,11 @@ import { EDIT_GRADE, SET_USER } from './types';
 import jwt_decode from "jwt-decode";
 
 
-export const editGrade = (id) => async dispatch => {
-    await fetch(`http://localhost:8080/api/student/updateTest/${id}`, {
+export const editGrade = (updateTest) => async dispatch => {
+    await fetch(`http://localhost:8080/api/student/updateTest/${updateTest.studentId}`, {
         method: 'PUT',
         body: JSON.stringify({
-            id: "612004466a18a679004e2f04",
+            id: updateTest.studen,
             name: "HTML",
             grade: 70
         }),
@@ -20,7 +20,7 @@ export const editGrade = (id) => async dispatch => {
 
 export const getUser = (loginInfo) => async dispatch => {
     try {
-        await fetch("http://localhost:8080/api/login/login", {
+        await fetch("http://localhost:8080/api/login", {
             method: 'POST',
             body: JSON.stringify({
                 role: loginInfo.role,
@@ -46,6 +46,7 @@ export const getUser = (loginInfo) => async dispatch => {
         }
     }
     catch (error) {
+        console.log(error)
         error.then(error => dispatch({
             type: SET_USER,
             payload: { isConnected: false, ...error }
