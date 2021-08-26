@@ -5,10 +5,10 @@ const {authRole} = require('../controller/authentication/auth');
 
 
 router.get('/',scheduleCtrl.getAllClasses);
-router.put('/',authRole(req.body.role),scheduleCtrl.updateClasses);
-router.post('/',authRole(req.body.role),scheduleCtrl.postClasses);
-router.delete('/',authRole(req.body.role),scheduleCtrl.deleteClasses)
-router.put('/updateClassesName',authRole(req.body.role),scheduleCtrl.updateClassesName)
+router.put('/',authRole("Staff"),scheduleCtrl.updateClasses);
+router.post('/',authRole("Staff"),scheduleCtrl.postClasses);
+router.delete('/',authRole("Staff"),scheduleCtrl.deleteClasses)
+router.put('/updateClassesName',authRole("Staff"),scheduleCtrl.updateClassesName)
 
 
 module.exports = router;
