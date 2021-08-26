@@ -22,6 +22,7 @@ const EditGradeComponent = ({ student, handleFnc }) => {
     )
   }
   console.log(updateTest);
+  console.log(editTest);
   return (
     <div className="student-info">
       <h3>
