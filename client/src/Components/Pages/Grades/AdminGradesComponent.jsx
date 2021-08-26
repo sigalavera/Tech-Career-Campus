@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import EditGradeComponent from "../../Features/EditGrade/EditGradeComponent";
 
 const AdminGradesComponent = () => {
-
   
   const [students, setStudents] = useState();
+
   useEffect(() => {
     fetch("http://localhost:8080/api/student")
       .then((response) => response.json())
@@ -51,7 +51,7 @@ const AdminGradesComponent = () => {
                 <td>{student.courseName}</td>
                 <td
                   onClick={() =>
-                    setStudentInfo({ isOpen: true, student: student })
+                    setStudentInfo({ isOpen: true, student})
                   }
                 >
                   <i className="fas fa-user-edit"></i>
