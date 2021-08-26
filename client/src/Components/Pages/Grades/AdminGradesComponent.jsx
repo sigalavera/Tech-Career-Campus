@@ -3,6 +3,7 @@ import EditGradeComponent from "../../Features/EditGrade/EditGradeComponent";
 
 const AdminGradesComponent = () => {
 
+  
   const [students, setStudents] = useState();
   useEffect(() => {
     fetch("http://localhost:8080/api/student")
@@ -20,14 +21,19 @@ const AdminGradesComponent = () => {
       <div>
         <h1>ציוני סטודנטים</h1>
         <input type="text" />
-        <button>Search</button>
+        <button>
+          Search
+        </button>
       </div>
       <div style={{ position: "relative" }}>
-        {studentInfo.isOpen ? 
+        {studentInfo.isOpen ? (
           <EditGradeComponent
             student={studentInfo.student}
-            handleFnc={()=>setStudentInfo(false)}
-          /> : ""}
+            handleFnc={() => setStudentInfo(false)}
+          />
+        ) : (
+          ""
+        )}
 
         <table className="table table-hover">
           <thead>
@@ -43,8 +49,11 @@ const AdminGradesComponent = () => {
                 <td>{student.firstName}</td>
                 <td>{student.lastName}</td>
                 <td>{student.courseName}</td>
-                <td onClick={() =>
-                    setStudentInfo({ isOpen: true, student: student })}>
+                <td
+                  onClick={() =>
+                    setStudentInfo({ isOpen: true, student: student })
+                  }
+                >
                   <i className="fas fa-user-edit"></i>
                 </td>
               </tr>

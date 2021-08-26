@@ -15,11 +15,10 @@ const routeCourse = require('./route/courseRouting');
 const routeStaff = require('./route/staffRouting');
 const routeForum = require('./route/forumRouting');
 const routeLoginRegister = require('./route/loginRouting');
-const routeSchedule = require('./route/classScheduleRouting')
+const classScheduleRouting = require('./route/classScheduleRouting')
 const routeEvent = require('./route/eventsRouting')
 const isToken = require('./controller/authorization/isToken')
 const mainRout = require('./route/mainRouting')
-const hhh = require('./route/mainRouting')
 
 //DB connection
 const db = require('./DB');
@@ -35,6 +34,7 @@ app.use('/api/forum', isToken,routeForum);
 app.use('/api/login',routeLoginRegister);
 app.use('/api/staff/register',isToken,routeLoginRegister);
 app.use('/api/event',isToken, routeEvent);
+app.use('/api/classSchedule', classScheduleRouting);
 
 app.listen(PORT, () => {
     console.log(
