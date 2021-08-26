@@ -8,26 +8,26 @@ const SECRET_KEY = process.env.SECRET_KEY;
 const login = async (req, res) => {
   if (req.body.role === "Staff") {
     const { errors, isValid } = validateLoginInput(req.body);
-    if (!isValid)
-      return res.status(404).json({ message: "there is error with email or password.", errors });
+    if (!isValid) {
+      return res
+        .status(404)
+        .json({ message: "there is error with email or password.", errors });
+    };
 
     const { email, password } = req.body;
     try {
-      const staff = await StaffModel.findOne({ email })
-
+      const staff = await StaffModel.findOne({ email });
       if (!staff) {
-        res.status(400).json({ errors: { email: "email not fond" } });
-      }
+        return res.status(400).json({ errors: { email: "email not fond" } });
+      };
 
-      const isPasswordCorrect = await bcrypt.compare(password, staff.password)
+      const isPasswordCorrect = await bcrypt.compare(password, staff.password);
 
+      if (!isPasswordCorrect) {
+        return res.status(400).json({ errors: { password: "wrong password" } });
+      };
 
-      if (!isPasswordCorrect)
-        res.status(400).json({ errors: { password: "wrong password" } });
-
-
-      let payload =
-      {
+      let payload = {
         id: staff._id,
         email: staff.email,
         firstName: staff.firstName,
@@ -36,63 +36,59 @@ const login = async (req, res) => {
         phone: staff.phone,
         age: staff.age,
         profileImg: staff.profileImg,
-        IdNumber: staff.IdNumber
+        IdNumber: staff.IdNumber,
+      };
 
-      }
-      const token = jwt.sign(
-        payload,
-        SECRET_KEY,
-        { expiresIn: "1d" }
-      );
-
+      const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "1d" });
       res.status(200).json({ message: "success", result: token });
-    } catch (err) {
-      res.status(500).json({ message: "something went wrong", errors: err.message });
-    }
 
+    } catch (err) {
+      res
+        .status(500)
+        .json({ message: "something went wrong", errors: err.message });
+    }
   }
 
   if (req.body.role === "Student") {
     const { errors, isValid } = validateLoginInput(req.body);
-    if (!isValid)
-      return res.status(404).json({ message: "there is error with email or password.", errors });
+    if (!isValid){
+      return res
+        .status(404)
+        .json({ message: "there is error with email or password.", errors })
+    };
 
     const { email, password } = req.body;
     try {
       const student = await StudentModel.findOne({ email });
 
       if (!student) {
-        res.status(400).json({ errors: { email: "email not fond" } });
-      }
+       return res.status(400).json({ errors: { email: "email not fond" } });
+      };
 
-      const isPasswordCorrect = await bcrypt.compare(password, staff.password)
+      const isPasswordCorrect = await bcrypt.compare(password, student.password);
 
+      if (!isPasswordCorrect){
+        return res.status(400).json({ errors: { password: "wrong password" } });
+      };
+        
 
-      if (!isPasswordCorrect)
-        res.status(400).json({ errors: { password: "wrong password" } });
-
-
-      const payload =
-      {
+      const payload = {
         id: student._id,
         email: student.email,
         firstName: student.firstName,
         lastName: student.lastName,
-        role: student.role
-      }
-      const token = jwt.sign(
-        payload,
-        SECRET_KEY,
-        { expiresIn: "1d" }
-      );
+        role: student.role,
+      };
 
+      const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "1d" });
       res.status(200).json({ message: "success", result: token });
+
     } catch (err) {
-      res.status(500).json({ message: "something went wrong", errors: err.message });
+      res
+        .status(500)
+        .json({ message: "something went wrong", errors: err.message });
     }
-
   }
-
 };
 
 module.exports = login;
