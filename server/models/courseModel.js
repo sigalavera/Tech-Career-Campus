@@ -12,11 +12,17 @@ const courseSchema = new Schema(
         CourseInformation: {
           type: [
             {
-              nameSubject: String,
+              nameSubject: {
+                type:String,
+                required:true
+              },
               topics: {
                 type: [
                   {
-                    subject: String,
+                    subject:{
+                      type:String,
+                      required:true
+                    },
                     isDone: {
                       type: Boolean,
                       required: true,
@@ -25,7 +31,10 @@ const courseSchema = new Schema(
                   },
                 ],
               },
-              summery: String,
+              summery: {
+                type:String,
+                required:true
+              },
               links: {
                 type: [
                   {
