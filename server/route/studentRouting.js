@@ -4,11 +4,8 @@ const isToken = require("../controller//authorization/isToken")
 const studentController = require("../controller/studentController")
 const {authRole} = require('../controller/authentication/auth');
 
-<<<<<<< HEAD
-router.post('/',authRole(req.body.role) , studentController.addNewStudent);
-=======
+
 router.post('/',authRole("Staff"), studentController.addNewStudent);
->>>>>>> f15a6b80a1bf05254c22674dadca2a84fc1044c2
 router.get('/', studentController.getStudent);
 router.get('/gradesById', studentController.getStudentGradeById);
 router.post('/addTestById', authRole("Staff"), studentController.addStudentTestById);
