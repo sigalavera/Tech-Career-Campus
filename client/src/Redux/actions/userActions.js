@@ -20,7 +20,7 @@ export const editGrade = (updateTest) => async dispatch => {
 
 export const getUser = (loginInfo) => async dispatch => {
     try {
-        await fetch("http://localhost:8080/api/login/login", {
+        await fetch("http://localhost:8080/api/login", {
             method: 'POST',
             body: JSON.stringify({
                 role: loginInfo.role,
