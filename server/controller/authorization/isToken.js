@@ -42,6 +42,4 @@ module.exports = isToken
 //     }
 //   }
 // };
-=======
 module.exports = isToken
->>>>>>> 93760a17d8b0d4eeb7745ce66b1bd9a2705aa12b
