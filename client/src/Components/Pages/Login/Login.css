@@ -191,6 +191,9 @@ a.ssolink {
   font-weight: 600;
   margin: 0 10px;
 }
+.errors{
+  color:red
+}
 
 .animationRightLeft {
   animation: animationRightLeft 2s ease-in-out infinite;
