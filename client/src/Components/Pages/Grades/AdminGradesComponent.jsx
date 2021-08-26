@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import EditGradeComponent from "../../Features/EditGrade/EditGradeComponent";
-
+import './admin.css'
 const AdminGradesComponent = () => {
 
   
@@ -17,13 +17,17 @@ const AdminGradesComponent = () => {
   });
 
   return (
-    <>
+    <div className='admin-grade-contaniner'>
       <div>
         <h1>ציוני סטודנטים</h1>
-        <input type="text" />
-        <button>
-          Search
+        <div className='wrap'>
+        <div className='search'>
+        <input className='search-term' type="text" />
+        <button className='search-button'>
+        <i className="fa fa-search"></i>
         </button>
+        </div>
+      </div>
       </div>
       <div style={{ position: "relative" }}>
         {studentInfo.isOpen ? (
@@ -41,6 +45,7 @@ const AdminGradesComponent = () => {
               <th scope="col">שם פרטי</th>
               <th scope="col">שם משפחה</th>
               <th scope="col">קורס</th>
+              <th scope="col">ערוך</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +66,7 @@ const AdminGradesComponent = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 
