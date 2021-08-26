@@ -47,14 +47,14 @@ const EditGradeComponent = ({ student, handleFnc }) => {
           </div>
         );
       })}
-      <form>
+      <form className="grade-form">
         <label>Test name</label>
         <input type={"text"} placeholder={"Test name"} />
         <label>Grade</label>
         <input type={"number"} placeholder={"Grade"} />
-        <button onClick={(e) => e.preventDefault()}>Add test</button>
+        <button className="btn"  onClick={(e) => e.preventDefault()}>Add test</button>
       </form>
-      <button onClick={() => handleFnc()}>סגור</button>
+      <button className="btn " onClick={() => handleFnc()}>סגור</button>
     </div>
   );
 };
