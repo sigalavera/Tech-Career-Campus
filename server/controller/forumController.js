@@ -6,6 +6,9 @@ const StudentModel = require("../models/studentModel");
 const messagesByStaff = async (req, res) => {
   const staff = await StaffModel.findById(req.body.id);
   const newMessages = new ForumModel({
+    firstName:req.body.firstName,
+    email:req.body.email,
+    title:req.body.title,
     message: req.body.message,
     authorByStaff: staff._id,
   });

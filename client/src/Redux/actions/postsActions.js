@@ -2,7 +2,7 @@ import { FETCH_ALL, UPDATE, CREATE, DELETE } from "../actions/types";
 
 export const getPosts = () => async (dispatch) => {
     try {
-      const { data } =  await fetch("http://localhost:8080/api/posts")
+      const { data } =  await fetch("http://localhost:8080/api/forum")
   
       dispatch({ type:FETCH_ALL, payload: data });
     } catch (error) {
@@ -12,12 +12,13 @@ export const getPosts = () => async (dispatch) => {
 
 export const createPost = (post) => async (dispatch) => {
   try {
-    await fetch(`http://localhost:8080/api/forum/staff`, {
+    await fetch(`http://localhost:8080/staff/api/forum`, {
         method: 'POST',
         body: JSON.stringify({
             post:post
         }),
-        headers: { 'Content-Type': "application/json" }
+        headers: { 
+        'Content-Type': "application/json" }
     }).then(res => res.json())
         .then(res => dispatch({
             type: CREATE,
