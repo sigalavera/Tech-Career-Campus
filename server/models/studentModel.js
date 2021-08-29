@@ -16,6 +16,7 @@ const studentSchema = new Schema(
         email: {
           type: String,
           required: true,
+          unique: true,
         },
         phone: {
           type: String,
@@ -63,7 +64,7 @@ const studentSchema = new Schema(
       },
     },
     required:false,
-    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
+    messages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
   },
   { timestamps: true }
 );
