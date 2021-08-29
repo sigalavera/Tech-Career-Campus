@@ -1,6 +1,6 @@
 const StudentModel = require('../models/studentModel')
 const StaffModel = require('../models/staffModel')
-
+const Course = require('../models/courseModel')
 
 const addNewStudent = async (req, res) => {
   const staff = await StaffModel.findById(req.body.id);
@@ -19,7 +19,6 @@ const addNewStudent = async (req, res) => {
     res.status(409).json({ message: "create new student filed", error: error });
   }
 };
-
 const getStudent = async (req, res) => {
   try {
     await StudentModel.find({}, (err, result) => {
@@ -31,7 +30,6 @@ const getStudent = async (req, res) => {
     res.status(500).json({ massage: "get Student field", error: err });
   }
 };
-
 const getStudentGradeById = async (req, res) => {
   try {
     StudentModel.findById(req.body.id, (error, result) => {
@@ -44,7 +42,7 @@ const getStudentGradeById = async (req, res) => {
   catch (err) {
     res.status(500).json({ massage: "get Student grades by id faild", error: err });
   }
-}
+};
 const addStudentTestById = async (req, res) => {
   try {
     StudentModel.findByIdAndUpdate(req.body.id, { $push: { "tests": { name: req.body.name, grade: req.body.grade } } }, (error, result) => {
@@ -56,8 +54,8 @@ const addStudentTestById = async (req, res) => {
   catch (err) {
     res.status(500).json({ massage: "adding a test to the test array faild", error: err });
   }
-}
-const  updateStudentTestById = async (req, res) => {
+};
+const updateStudentTestById = async (req, res) => {
   try {
     StudentModel.findOneAndUpdate({ _id: req.params._id, tests: { $elemMatch: { _id: req.body.id } } }, { $set: { "tests.$.grade": req.body.grade } }, (error, result) => {
       if (error) throw error
@@ -68,7 +66,7 @@ const  updateStudentTestById = async (req, res) => {
   catch (err) {
     res.status(500).json({ massage: "updating a student test faild", error: err });
   }
-}
+};
 const deleteStudentTestById = async (req, res) => {
   try {
     StudentModel.findByIdAndUpdate(req.params._id, { $pull: { tests: { _id: req.body.id } } }, (error, result) => {
@@ -80,7 +78,7 @@ const deleteStudentTestById = async (req, res) => {
   catch (err) {
     res.status(500).json({ massage: "deleting a student test faild", error: err });
   }
-}
+};
 
 module.exports = {
   addNewStudent,
