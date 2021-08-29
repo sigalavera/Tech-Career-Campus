@@ -42,12 +42,12 @@ const getStudentGradeById = async (req, res) => {
       if (error) throw error;
       res
         .status(200)
-        .json({ massage: "get Student grades by id success!", data: result });
+        .json({ massage: "get Student grades by id success!", data: result.tests});
     });
   } catch (err) {
     res
       .status(500)
-      .json({ massage: "get Student grades by id faild", error: err });
+      .json({ massage: "get Student grades by id failed", error: err });
   }
 };
 const addStudentTestById = async (req, res) => {
@@ -68,7 +68,7 @@ const addStudentTestById = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ massage: "adding a test to the test array faild", error: err });
+      .json({ massage: "adding a test to the test array failed", error: err });
   }
 };
 const updateStudentTestById = async (req, res) => {

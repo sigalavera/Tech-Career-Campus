@@ -28,13 +28,13 @@ db.on('error', () => {
 // use route
 
 app.use('/api/student' , isToken,routeStudent);
-app.use('/api/course' ,routeCourse);
-app.use('/api/staff',routeStaff);
-app.use('/api/forum',routeForum);
+app.use('/api/course' ,isToken,routeCourse);
+app.use('/api/staff',isToken,routeStaff);
+app.use('/api/forum',isToken,routeForum);
 app.use('/api/login',routeLoginRegister);
-app.use('/api/staff/register',routeLoginRegister);
-app.use('/api/event',routeEvent);
-app.use('/api/classSchedule',classScheduleRouting);
+app.use('/api/staff/register',isToken,routeLoginRegister);
+app.use('/api/event',isToken,routeEvent);
+app.use('/api/classSchedule',isToken,classScheduleRouting);
 
 app.listen(PORT, () => {
     console.log(
