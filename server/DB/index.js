@@ -7,7 +7,7 @@ const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    useCreateIndex: true
+    useCreateIndex:true
 }
 mongoose
     .connect(dbConnection, options)

@@ -15,9 +15,9 @@ const messagesByStaff = async (req, res) => {
     await staff.save();
     res
       .status(201)
-      .json({ message: "create new message success", data: newMessages });
+      .json({ message: "create new message success", data: newMessages.message });
   } catch (error) {
-    res.status(409).json({ message: "create new message filed", error: error });
+    res.status(500).json({ message: "create new message filed", error: error });
   }
 };
 
@@ -55,7 +55,7 @@ const deleteMessage = async (req, res) => {
     try {
         await ForumModel.findByIdAndDelete(req.params.id, (err, result) => {
             if (err) throw err;
-            res.json({ massage: "delete student success"  })
+            res.json({ massage: "delete message success", data:result})
         })
 
     }

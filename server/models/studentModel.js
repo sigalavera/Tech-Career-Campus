@@ -3,8 +3,6 @@ const Schema = mongoose.Schema;
 
 const studentSchema = new Schema(
   {
-    student: {
-      type: {
         firstName: {
           type: String,
           required: true,
@@ -16,6 +14,7 @@ const studentSchema = new Schema(
         email: {
           type: String,
           required: true,
+          unique: true,
         },
         phone: {
           type: String,
@@ -59,13 +58,9 @@ const studentSchema = new Schema(
             },
           ],
         },
-        required: false,
-      },
-    },
     required:false,
     messages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
-    createBy: [{ type: Schema.Types.ObjectId, ref: "staff" }]
-
+    createBy: { type: Schema.Types.ObjectId, ref: "staff" },
   },
   { timestamps: true }
 );

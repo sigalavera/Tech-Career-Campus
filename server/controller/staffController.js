@@ -57,26 +57,22 @@ const updateStaffById = async (req, res) => {
 }
 
 const getStudentsByStaff = async (req, res) => {
-  const staff = StaffModel.findById(req.body.id , (err,result)=>{
-    if (err) throw err
-    res.status(201).json({message :"staff not found" , data:result})
-  })
-  const studentId = staff.Students
-  studentId.map(()=>{
-    populate('createBy')
-  })
-  exec((err, student)=> {
-    if (err) throw err 
-    console.log('The student is ', student.createBy.firstName);
-    // prints "The author is Ian Fleming"
-  })
+  try {
+      await StaffModel.findById(req.body.id)
+          .populate('students')
+          .then(staff => {
+              res.status(201).json({ massage: 'The student is ', data: staff.students.map((stu) => stu ) })
+          })
+          .catch(err => {
+              res.status(500).json({ massage: 'error with population', data: err });
+          })
+
   }
-  // const staff = staffmodel.findById(req.body.id)
-  // const studentStaff = staff.student
-  // Story.
-  //   findOne({ title: 'Casino Royale' }).
-  //   populate('author').
- 
+  catch (err) {
+      res.status(500).json({ massage: "wrong", error: err })
+  }
+}
+
 
 module.exports = {
   addNewStaff,

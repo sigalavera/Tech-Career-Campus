@@ -17,23 +17,33 @@ const routeForum = require('./route/forumRouting');
 const routeLoginRegister = require('./route/loginRouting');
 const classScheduleRouting = require('./route/classScheduleRouting')
 const routeEvent = require('./route/eventsRouting')
-// const isToken = require('./controller/authorization/isToken')
+const isToken = require('./controller/authorization/isToken')
 
 //DB connection
 const db = require('./DB');
 db.on('error', () => {
     console.log(chalk.red('Connection error'));
 });
-
 // use route
-app.use('/api/student' , routeStudent);
-app.use('/api/course' ,routeCourse);
-app.use('/api/staff',routeStaff);
-app.use('/api/forum',routeForum);
+
+// app.use('/api/student' , routeStudent);
+// app.use('/api/course' ,routeCourse);
+// app.use('/api/staff',routeStaff);
+// app.use('/api/forum',routeForum);
+// app.use('/api/login',routeLoginRegister);
+// app.use('/api/staff/register',routeLoginRegister);
+// app.use('/api/event', routeEvent);
+// app.use('/api/classSchedule', classScheduleRouting);
+
+
+app.use('/api/student' ,isToken,routeStudent);
+app.use('/api/course' ,isToken,routeCourse);
+app.use('/api/staff',isToken,routeStaff);
+app.use('/api/forum',isToken,routeForum);
 app.use('/api/login',routeLoginRegister);
-app.use('/api/staff/register',routeLoginRegister);
-app.use('/api/event', routeEvent);
-app.use('/api/classSchedule', classScheduleRouting);
+app.use('/api/staff/register',isToken,routeLoginRegister);
+app.use('/api/event',isToken,routeEvent);
+app.use('/api/classSchedule',isToken,classScheduleRouting);
 
 app.listen(PORT, () => {
     console.log(
