@@ -1,64 +1,87 @@
 .footerDiv {
     /* border: 1px solid black; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    position: absolute;
+    background-color: rgb(207, 196, 233);
+    color: white;
     width: 100vw;
-    bottom: 0;
+    height: 260px;
+    border-radius: 40px 40px 0px 0px;
+    
     
 }
-.footerDiv .contactUsClass {
-    /* border: 1px solid black; */
+.footer{
+    background-color: rgb(228, 221, 247);
+    border: 1px solid black;
+    width: 100vw;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    width: 250px;
-    height: 100px;
+}
+.container{
+    /* border: 1px solid black; */
+    width: 1800px;
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerDiv .contactUsClass  {
+    border: 1px solid black;
+    width: 240px;
+    height: 200px;
 }
 .footerDiv .contactUsClass h4{
     /* border: 1px solid black; */
-    display: flex;
-    justify-content: flex-end;
     width: 230px;
     height: 30px;
 }
 
 .footerDiv .contactUsClass  ul li{
     display: flex;
-    justify-content: flex-end;
+    justify-content: start;
     align-items: center;
     /* border: 1px solid black; */
     width: 230px;
     height: 20px;
+}
+.about{ 
+    border: 1px solid black;
+    width: 350px;
+    height: 150px;
+}
+h4 {
+    display: flex;
+    justify-content: start;
+    font-size: 20px;
+    color: rgb(128, 83, 253);
+    
 }
 .footerDiv .aboutUsClass ul {
     display: flex;
     justify-content: center;
     align-items: center;
     /* flex-direction: row; */
-    /* border: 1px solid black; */
+    border: 1px solid black;
     width: 350px;
-    height: 100px;
-    /* right: 60px; */
-    /* bottom: 2%; */
+    height: 50px;
+    
 }
 .footerDiv .aboutUsClass ul li {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: row; */
-     display: inline-block; 
-    /* width: 60px;
-    height: 60px;  */
     
 }
 .footerDiv .aboutUsClass ul li a{
-    color: #070707;
+    color:white;
     text-align: center;
-    padding: 12px 26px;
-    font-size: 25px;
+    padding: 12px 16px;
+    font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.5s;
@@ -68,12 +91,42 @@
     color: #f7f4f4;
     
 }
+.title {
+    display: flex;
+    justify-content: start;
+    /* border: 1px solid black; */
+    width: 150px;
+    height: 40px;
+}
+.quick-link{
+    
+border: 1px solid black;
+width: 150px;
+height: 200px;
+
+}
+.quick-link .quick-links{
+display: flex;
+justify-content: flex-end;
+align-items: flex-end;
+flex-direction: column;
+/* border: 1px solid black; */
+}
+
+
 @media only screen and (max-width: 768px){
+    .container{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
     .footerDiv{
         display: flex;
         justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        align-items: center;    
     }
+
     .footerDiv .contactUsClass{
         display: none;
         
