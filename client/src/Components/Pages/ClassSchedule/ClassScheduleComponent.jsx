@@ -31,6 +31,7 @@ const ClassScheduleComponent = () => {
         width="800px"
         enableRtl={true} 
         firstDayOfWorkWeek={0}
+      
       >
             <ViewsDirective>
             <ViewDirective option='Day' displayName="היום"/>
