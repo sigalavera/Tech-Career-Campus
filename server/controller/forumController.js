@@ -6,7 +6,7 @@ const StudentModel = require("../models/studentModel");
 const messagesByStaff = async (req, res) => {
   const staff = await StaffModel.findById(req.body.id);
   const newMessages = new ForumModel({
-    massage: req.body.message,
+    message: req.body.message,
     authorByStaff: staff._id,
   });
   try {
@@ -21,22 +21,23 @@ const messagesByStaff = async (req, res) => {
   }
 };
 
+
 const messagesByStudent = async (req, res) => {
   const student = await StudentModel.findById(req.body.id);
+  if(!student){
+   return res.status(500).json({ message: "student not fond", error: error });
+  }
   const newMessages = new ForumModel({
-    massage: req.body.message,
-    authorByStaff: student._id,
+    message: req.body.message,
+    authorByStudent: student._id
   });
   try {
     await newMessages.save();
     student.messages.push(newMessages);
     await student.save();
-
-    res
-      .status(201)
-      .json({ message: "create new message success", data: newMessages });
+    res.status(201).json({ message: "create new message success", data: newMessages});
   } catch (error) {
-    res.status(409).json({ message: "create new message filed", error: error });
+    res.status(500).json({ message: "create new message filed", error: error });
   }
 };
 const getAllMessages = async (req, res) => {
