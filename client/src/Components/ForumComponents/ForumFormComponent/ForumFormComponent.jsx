@@ -7,6 +7,7 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     firstName: "",
     email: "",
+    title:"",
     message: "",
   });
   const post = useSelector((state) =>
@@ -16,6 +17,8 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
   const token = localStorage.getItem("jwtToken");
   const user = jwt_decode(token);
 
+  console.log(user);
+
   useEffect(() => {
     if (post) setPostData(post);
   }, [post]);
@@ -24,10 +27,10 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
     e.preventDefault();
     if (currentId) {
       dispatch(
-        updatePost(currentId, { ...postData, firstName: user?.firstName })
+        updatePost(currentId, { ...postData, firstName: user?.firstName, email:user?.email })
       );
     } else {
-      dispatch(createPost({ ...postData, firstName: user?.firstName }));
+      dispatch(createPost({ ...postData, firstName: user?.firstName , email:user?.email}));
     }
     clear();
   };
@@ -36,6 +39,7 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
     setPostData({
       firstName: "",
       email: "",
+      title:"",
       message: "",
     });
   };
@@ -44,16 +48,16 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
       <form onSubmit={handleSubmit} className="form" id="form1">
         <p className="name">
           <input
-            name="name"
+            name="title"
             type="text"
             className="validate[required,custom[onlyLetter],length[0,100]] feedback-input"
-            placeholder="שם..."
+            placeholder="כותרת..."
             id="name"
-            onChange={(e) => setPostData({ ...postData, firstName: e.target.value })}
+            onChange={(e) => setPostData({ ...postData, title: e.target.value })}
           />
         </p>
 
-        <p className="email">
+        {/* <p className="email">
           <input
             name="email"
             type="text"
@@ -64,7 +68,7 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
               setPostData({ ...postData, email: e.target.value })
             }
           />
-        </p>
+        </p> */}
 
         <p className="text">
           <textarea

@@ -12,6 +12,7 @@ const messagesByStaff = async (req, res) => {
   try {
     await newMessages.save();
     staff.messages.push(newMessages);
+    console.log(newMessages);
     await staff.save();
     res
       .status(201)

@@ -1,9 +1,8 @@
 import { FETCH_ALL, UPDATE, CREATE, DELETE } from "../actions/types";
-import jwt_decode from "jwt-decode";
 
 export const getPosts = () => async (dispatch) => {
     try {
-      const { data } = await await fetch("http://localhost:8080/api/posts")
+      const { data } =  await fetch("http://localhost:8080/api/posts")
   
       dispatch({ type:FETCH_ALL, payload: data });
     } catch (error) {
@@ -11,10 +10,9 @@ export const getPosts = () => async (dispatch) => {
     }
   };
 
-  
 export const createPost = (post) => async (dispatch) => {
   try {
-    await fetch(`http://localhost:8080/api/posts`, {
+    await fetch(`http://localhost:8080/api/forum/staff`, {
         method: 'POST',
         body: JSON.stringify({
             post:post
@@ -30,6 +28,7 @@ export const createPost = (post) => async (dispatch) => {
     console.log(error);
   }
 };
+
 export const updatePost = (id, post) => async (dispatch) => {
   try {
     await fetch(`http://localhost:8080/api/posts/${id}`, {
@@ -47,6 +46,7 @@ export const updatePost = (id, post) => async (dispatch) => {
     console.log(error);
   }
 };
+
 export const deletePost = (id) => async (dispatch) => {
   try {
     await fetch(`http://localhost:8080/api/posts/${id}`, {
