@@ -15,12 +15,12 @@ const getAllEventPost = async (req, res) => {
 const getEventById = async (req, res) => {
   try {
     await eventModel.findById(
-      { _id: ObjectId(req.body._id) },
+      { _id: ObjectId(req.body.id) },
       (error, result) => {
         if (error) throw error;
         res
           .status(200)
-          .json({ massage: "get event by id succses", data: result });
+          .json({ massage: "get event by id success", data: result });
       }
     );
   } catch (error) {
@@ -28,7 +28,7 @@ const getEventById = async (req, res) => {
   }
 };
 
-const PostnewEvent = async (req, res) => {
+const postNewEvent = async (req, res) => {
   try {
     await eventModel.insertMany(req.body, (error, result) => {
       if (error) throw error;
@@ -45,7 +45,7 @@ const PostnewEvent = async (req, res) => {
 const deleteEventPost = async (req, res) => {
   try {
     await eventModel.findOneAndDelete(
-      { _id: ObjectId(req.body._id) },
+      { _id: ObjectId(req.body.id) },
       (error, result) => {
         if (error) throw error;
         res
@@ -60,8 +60,8 @@ const deleteEventPost = async (req, res) => {
 
 const updateEventPost = async (req, res) => {
   try {
-    eventModel.findByIdAndUpdate(
-      { _id: ObjectId(req.params._id) },
+    await eventModel.findByIdAndUpdate(
+      { _id: ObjectId(req.params.id) },
       { $set: req.body },
       (error, result) => {
         if (error) throw error;
@@ -75,7 +75,7 @@ const updateEventPost = async (req, res) => {
 module.exports = {
   getAllEventPost,
   getEventById,
-  PostnewEvent,
+  postNewEvent,
   deleteEventPost,
   updateEventPost,
 };

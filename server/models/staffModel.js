@@ -14,10 +14,12 @@ const staffSchema = new Schema(
     email: {
       type: String,
       require: true,
+      unique: true,
     },
     phone: {
       type: String,
       require: true,
+      
     },
     password: {
       type: String,
@@ -41,13 +43,14 @@ const staffSchema = new Schema(
       default: "",
     },
     courses: [{ type: Schema.Types.ObjectId, ref: "course"}],
-    event: [{ type: Schema.Types.ObjectId, ref: "event" }],
-    creatorMessages: [{ type: Schema.Types.ObjectId, ref: "massage" }],
+    events: [{ type: Schema.Types.ObjectId, ref: "event" }],
+    messages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
+    students: [{ type: Schema.Types.ObjectId, ref: "student" }]
   },
   { timestamps: true }
 );
-
 const Staff = mongoose.model("staff", staffSchema);
+
 module.exports = Staff;
 
 
