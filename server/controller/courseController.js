@@ -45,9 +45,6 @@ const getCourseByName = async (req, res) => {
   }
 };
 
-const updateCorse = async () => {
-  
-};
 module.exports = {
   addNewCourse,
   getAllCourses,

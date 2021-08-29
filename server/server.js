@@ -27,7 +27,7 @@ db.on('error', () => {
 });
 // use route
 
-app.use('/api/student' ,routeStudent);
+app.use('/api/student' , isToken,routeStudent);
 app.use('/api/course' ,routeCourse);
 app.use('/api/staff',routeStaff);
 app.use('/api/forum',routeForum);
