@@ -17,7 +17,6 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
   const token = localStorage.getItem("jwtToken");
   const user = jwt_decode(token);
 
-  console.log(user);
 
   useEffect(() => {
     if (post) setPostData(post);
@@ -52,6 +51,7 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
             type="text"
             className="validate[required,custom[onlyLetter],length[0,100]] feedback-input"
             placeholder="כותרת..."
+            value={postData.title}
             id="name"
             onChange={(e) => setPostData({ ...postData, title: e.target.value })}
           />
@@ -76,6 +76,7 @@ const ForumFormComponent = ({ currentId, setCurrentId }) => {
             className="validate[required,length[6,300]] feedback-input"
             id="comment"
             placeholder="תוכן הפוסט..."
+            value={postData.message}
             onChange={(e) =>
               setPostData({ ...postData, message: e.target.value })
             }
