@@ -10,7 +10,7 @@ const isToken = (req, res, next) => {
       if (req.body.payload && payload._id !== payload) {
         res.redirect('./login')
       } else {
-        req.body = payload;
+        // req.body = payload;
         next();
       }
     } catch (error) {

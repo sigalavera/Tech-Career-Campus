@@ -57,7 +57,7 @@ const addStudentTestById = async (req, res) => {
     res.status(500).json({ massage: "adding a test to the test array faild", error: err });
   }
 }
-const updateStudentTestById = async (req, res) => {
+const  updateStudentTestById = async (req, res) => {
   try {
     StudentModel.findOneAndUpdate({ _id: req.params._id, tests: { $elemMatch: { _id: req.body.id } } }, { $set: { "tests.$.grade": req.body.grade } }, (error, result) => {
       if (error) throw error

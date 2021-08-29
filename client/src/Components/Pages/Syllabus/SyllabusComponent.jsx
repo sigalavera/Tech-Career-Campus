@@ -2,29 +2,34 @@ import React, { useEffect, useState } from 'react'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { fetchSyllabus } from '../../../FetchFunctions/FetchFunctions'
-
+import { useSelector, useDispatch } from 'react-redux';
+import { getSyllabus } from '../../../Redux/actions/SyllabusAction';
+import { CourseForm } from '../../Features/CourseForm/CourseForm';
 
 const SyllabusComponent = () => {
-  const [syllabusData, setSyllabusData] = useState()
-
+  const syllabus = useSelector(state => state.syllabus.state);
+  const dispatch = useDispatch();
+  console.log(syllabus);
   useEffect(() => {
 
     fetchSyllabus()
       .then(data => {
-        setSyllabusData(data.data[0].corse);
+        dispatch(getSyllabus(data.data[0]));
       })
 
   }, [])
 
   return (
     <>
+    syllabus.c
       <h1>סילבוס</h1>
+      <CourseForm/>
       <VerticalTimeline>
-        <h1>{syllabusData?.name}</h1>
-        {syllabusData?.CourseInformation.map((courseItem => {
+        <h1>{syllabus?.corse.name}</h1>
+        {syllabus?.corse.CourseInformation.map((courseItem => {
           return (
             <VerticalTimelineElement
-            key={courseItem.nameSubject}
+              key={courseItem.nameSubject}
               className="vertical-timeline-element--work"
               contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
               contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
