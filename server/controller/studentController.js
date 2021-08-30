@@ -1,6 +1,5 @@
 const StudentModel = require("../models/studentModel");
 
-
 const getStudent = async (req, res) => {
   try {
     await StudentModel.find({}, (err, result) => {
@@ -11,6 +10,7 @@ const getStudent = async (req, res) => {
     res.status(500).json({ massage: "get Student field", error: err });
   }
 };
+
 const getStudentGradeById = async (req, res) => {
   try {
     StudentModel.findById(req.body.id, (error, result) => {
@@ -25,6 +25,7 @@ const getStudentGradeById = async (req, res) => {
       .json({ massage: "get Student grades by id failed", error: err });
   }
 };
+
 const addStudentTestById = async (req, res) => {
   try {
     await StudentModel.findByIdAndUpdate(
@@ -46,6 +47,7 @@ const addStudentTestById = async (req, res) => {
       .json({ massage: "adding a test to the test array failed", error: err });
   }
 };
+
 const updateStudentTestById = async (req, res) => {
   try {
    await StudentModel.findOneAndUpdate(
@@ -67,6 +69,7 @@ const updateStudentTestById = async (req, res) => {
       .json({ massage: "updating a student test faild", error: err });
   }
 };
+
 const deleteStudentTestById = async (req, res) => {
   try {
     StudentModel.findByIdAndUpdate(
@@ -91,7 +94,6 @@ const deleteStudentTestById = async (req, res) => {
 };
 
 module.exports = {
-  addNewStudent,
   getStudent,
   getStudentGradeById,
   addStudentTestById,
