@@ -11,16 +11,6 @@ const addNewStaff = async (req, res) => {
   }
 };
 
-const getAllStaff= async(req,res) =>{
-  try {
-    await StaffModel.find({},(err,result)=>{
-      if(err) throw err;
-      res.status(200).json({massage: "find staff success!", data: result})
-    });
-  } catch (err) {
-    res.status(500).json({massage: "find staff filed", data: result});
-  }
-}
 
 const getAllStaffById = async (req,res) => {
   try {
@@ -31,7 +21,7 @@ const getAllStaffById = async (req,res) => {
   } catch (error) {
     res.status(500).json({massage: "find by id staff filed", data: result});
   }
-}
+};
 
 const deleteStaffById = async (req,res) => {
   try {
@@ -42,7 +32,7 @@ const deleteStaffById = async (req,res) => {
   } catch (error) {
     res.status(500).json({massage: "delete by id staff filed", data: result});
   }
-}
+};
 
 const updateStaffById = async (req,res) =>{
   try {
@@ -53,7 +43,7 @@ const updateStaffById = async (req,res) =>{
   } catch (error) {
     res.status(500).json({massage: "update staff filed", data: result});
   }
-}
+};
 
 module.exports = {
      addNewStaff,

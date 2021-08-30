@@ -1,31 +1,6 @@
 const StudentModel = require("../models/studentModel");
-const StaffModel = require("../models/staffModel");
-const Course = require("../models/courseModel");
 
-const addNewStudent = async (req, res) => {
-  const staff = await StaffModel.findById(req.body.id);
-  const { firstName, lastName, age, email, courseName, password, phone} = req.body;
-  const newStudent = new StudentModel({
-    firstName:firstName,
-    lastName:lastName,
-    email:email,
-    phone:phone,
-    password:password,
-    age:age,
-    courseName:courseName,
-    createBy: staff._id
-  });
-  try {
-    await newStudent.save();
-    staff.students.push(newStudent);
-    await staff.save();
-    res
-      .status(201)
-      .json({ message: "create new student success", data: newStudent });
-  } catch (error) {
-    res.status(409).json({ message: "create new student filed", error: error });
-  }
-};
+
 const getStudent = async (req, res) => {
   try {
     await StudentModel.find({}, (err, result) => {
@@ -54,14 +29,14 @@ const addStudentTestById = async (req, res) => {
   try {
     await StudentModel.findByIdAndUpdate(
       req.body.id,
-      { $push: { tests: { name: req.body.name, grade: req.body.grade } } },
+      { $push: { tests: { name: req.body.name, grade: req.body.grade } } }, { new: true },
       (error, result) => {
         if (error) throw error;
         res
           .status(200)
           .json({
             massage: "add test to a student by name was a success",
-            data: result.tests,
+            data: result,
           });
       }
     );
@@ -75,14 +50,14 @@ const updateStudentTestById = async (req, res) => {
   try {
    await StudentModel.findOneAndUpdate(
       { _id: req.params._id, tests: { $elemMatch: { _id: req.body.id } } },
-      { $set: { "tests.$.grade": req.body.grade } },
+     { $set: { "tests.$.grade": req.body.grade } }, { new: true },
       (error, result) => {
         if (error) throw error;
         res
           .status(200)
           .json({
             massage: "updating a student test was a success",
-            data: result.tests,
+            data: result,
           });
       }
     );
@@ -103,8 +78,9 @@ const deleteStudentTestById = async (req, res) => {
           .status(200)
           .json({
             massage: "deleting a student test was a success",
-            data: result.tests,
+            data: result,
           });
+          console.log(result)
       }
     );
   } catch (err) {
@@ -120,5 +96,5 @@ module.exports = {
   getStudentGradeById,
   addStudentTestById,
   updateStudentTestById,
-  deleteStudentTestById,
+  deleteStudentTestById
 };

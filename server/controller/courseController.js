@@ -3,11 +3,12 @@ const StaffModel = require("../models/staffModel");
 
 const addNewCourse = async (req, res) => {
   const staff = await StaffModel.findById(req.body.id);
+  const {name,CourseInformation} = req.body
   const newCourse = new CourseModel({
-    corse: req.body.corse,
+    name:name,
+    CourseInformation: CourseInformation,
     coursesCreator: staff._id,
   });
-
   try {
     await newCourse.save();
     staff.courses.push(newCourse);
@@ -43,6 +44,10 @@ const getCourseByName = async (req, res) => {
       .status(500)
       .json({ message: "get course by name field", error: err.message });
   }
+};
+
+const updateCorse = async () => {
+  
 };
 
 module.exports = {
