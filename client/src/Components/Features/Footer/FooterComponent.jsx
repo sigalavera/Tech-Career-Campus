@@ -7,15 +7,19 @@ const Footer = () => {
         <div className="footerDiv">
             <div className="container">
                 <div className="aboutUsClass">
+
                     <div className="about">
-                        <div className="title">
-                            <h4>About</h4>
+                        <div className="title1">
+                            <h3>טק-קריירה</h3>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, <br></br> consectetur adipisicing elit. Et delectus
-                    laudantium aspernatur perspiciatis<br></br> cupiditate, eaque labore
-                    nihil excepturi
-                     </p>
+
+                        <ol>
+                            <li>מרכז הכשרה טכנולוגי,</li>
+                            <li>לצעירים יוצאי קהילת אתיופיה בישראל</li>
+                        </ol>
+
                     </div>
+
                     <ul>
                         <li>
                             <a href="https://www.tech-career.org/" target="_blank" rel="noopener noreferrer">
@@ -41,9 +45,9 @@ const Footer = () => {
 
                 </div>
                 <div className="quick-link">
-                    <div className="title">
+                    {/* <div className="title1">
                         <h4>Quick Link</h4>
-                    </div>
+                    </div> */}
                     <ul className="quick-links">
                         <li>
                             <Link to={"/news"}>חדשות</Link>
@@ -64,8 +68,8 @@ const Footer = () => {
 
                 </div>
                 <div className="contactUsClass">
-                    <div className="title">
-                        <h4>Contact</h4>
+                    <div className="title1">
+                        <h4>צור קשר</h4>
                     </div>
                     <ul>
                         <li> 08-3738000 </li>
@@ -73,9 +77,13 @@ const Footer = () => {
                         <li> בת שבע 3, מתחם טלרד, לוד </li>
                     </ul>
                 </div>
+
             </div>
+
             <div className="footer">
-                <span>david talala</span>
+                <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+         <a href="#"> ma nigga</a>
+                </p>
 
             </div>
         </div>
