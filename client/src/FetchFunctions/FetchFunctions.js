@@ -18,7 +18,13 @@ export const fetchNewApi = async () => {
 
 export const fetchSyllabus = async () => {
     try {
-        return await fetch('http://localhost:8080/api/course')
+        return await fetch('http://localhost:8080/api/course',{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.jwtToken,
+                
+              }
+        })
             .then((res) => res.json())
             .then((response) => response)
             .catch(err => {
@@ -31,7 +37,12 @@ export const fetchSyllabus = async () => {
 
 export const fetchEvents = async () => {
     try {
-        return await fetch('http://localhost:8080/api/event')
+        return await fetch('http://localhost:8080/api/event',{
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.jwtToken, 
+              }
+        })
         .then((res) => res.json())
         .then((response) => response)
         .catch(err => {

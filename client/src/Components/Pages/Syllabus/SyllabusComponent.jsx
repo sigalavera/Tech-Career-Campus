@@ -47,6 +47,19 @@ const SyllabusComponent = () => {
               <p>
                 {courseItem.summery}
               </p>
+              <ul><h3>Links:</h3>
+                {
+                  courseItem.links.map((link) => {
+                    return (
+                      <>
+                        <li> <a href={link.tasks}>Google Drive</a> </li>
+                        <li> <a href={link.Presentations}>Presentation</a> </li>
+                      </>
+                    )
+                  })
+                }
+              </ul>
+
             </VerticalTimelineElement>)
         }))}
 
