@@ -7,19 +7,15 @@ const Footer = () => {
         <div className="footerDiv">
             <div className="container">
                 <div className="aboutUsClass">
-
                     <div className="about">
                         <div className="title1">
-                            <h3>טק-קריירה</h3>
+                            <h2>טק-קריירה</h2>
                         </div>
-
                         <ol>
                             <li>מרכז הכשרה טכנולוגי,</li>
                             <li>לצעירים יוצאי קהילת אתיופיה בישראל</li>
                         </ol>
-
                     </div>
-
                     <ul>
                         <li>
                             <a href="https://www.tech-career.org/" target="_blank" rel="noopener noreferrer">
@@ -42,10 +38,9 @@ const Footer = () => {
                             </a>
                         </li>
                     </ul>
-
                 </div>
                 <div className="quick-link">
-                    {/* <div className="title1">
+                    {/* <div className="title2">
                         <h4>Quick Link</h4>
                     </div> */}
                     <ul className="quick-links">
@@ -65,10 +60,9 @@ const Footer = () => {
                             <Link to={"/class-schedule"}>לו"ז כיתות</Link>
                         </li>
                     </ul>
-
                 </div>
                 <div className="contactUsClass">
-                    <div className="title1">
+                    <div className="title2">
                         <h4>צור קשר</h4>
                     </div>
                     <ul>
@@ -77,14 +71,11 @@ const Footer = () => {
                         <li> בת שבע 3, מתחם טלרד, לוד </li>
                     </ul>
                 </div>
-
             </div>
-
             <div className="footer">
                 <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
          <a href="#"> ma nigga</a>
                 </p>
-
             </div>
         </div>
     )
