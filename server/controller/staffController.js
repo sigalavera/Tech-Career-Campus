@@ -1,5 +1,4 @@
 const StaffModel = require('../models/staffModel');
-const StudentModel = require('../models/studentModel')
 
 const addNewStaff = async (req, res) => {
   try {
