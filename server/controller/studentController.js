@@ -30,7 +30,8 @@ const addStudentTestById = async (req, res) => {
   try {
     await StudentModel.findByIdAndUpdate(
       req.body.id,
-      { $push: { tests: { name: req.body.name, grade: req.body.grade } } }, { new: true },
+      { $addToSet: { tests: { name: req.body.name, grade: req.body.grade } } },
+      { new: true },
       (error, result) => {
         if (error) throw error;
         res
@@ -72,9 +73,10 @@ const updateStudentTestById = async (req, res) => {
 
 const deleteStudentTestById = async (req, res) => {
   try {
-    StudentModel.findByIdAndUpdate(
+   await StudentModel.findByIdAndUpdate(
       req.params._id,
       { $pull: { tests: { _id: req.body.id } } },
+      { new: true },
       (error, result) => {
         if (error) throw error;
         res

@@ -11,7 +11,7 @@ const SyllabusComponent = () => {
 
     fetchSyllabus()
       .then(data => {
-        setSyllabusData(data.data[0]);
+        setSyllabusData(data?.data[0].corse);
       })
   }, [])
 
