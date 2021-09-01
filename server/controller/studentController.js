@@ -100,5 +100,5 @@ module.exports = {
   getStudentGradeById,
   addStudentTestById,
   updateStudentTestById,
-  deleteStudentTestById
+  deleteStudentTestById,
 };
