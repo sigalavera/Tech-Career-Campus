@@ -1,4 +1,4 @@
-import { GET_SYLLABUS, SELECTED_SYLLABUS } from "./types";
+import { GET_SYLLABUS } from "./types";
 
 
 export const getSyllabus = (syllabus) => {
@@ -8,9 +8,3 @@ export const getSyllabus = (syllabus) => {
     }
 }
 
-export const selectedSyllabus = (syllabus) => {
-    return {
-        type: SELECTED_SYLLABUS,
-        payload: syllabus,
-    }
-}

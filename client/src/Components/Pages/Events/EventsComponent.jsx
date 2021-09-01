@@ -44,11 +44,11 @@ const Events = () => {
     }
 
     useEffect(async () => {
-        await getDat(); 
+        await getDat();
     }, [])
 
-    const getDat = ()=> {
-        fetch("http://localhost:8080/api/event", {headers: defaultHeaders})
+    const getDat = () => {
+        fetch("http://localhost:8080/api/event", { headers: defaultHeaders })
             .then((res) => res.json())
             .then((response) => setEvents(response.data))
             .catch(err => { console.error("GET ALL FAIL") });
@@ -64,17 +64,17 @@ const Events = () => {
     const updateEvent = async (_id) => {
         await fetch(`http://localhost:8080/api/event/${_id}`, optionPUT)
             .then((res) => res.json())
-            .then((res) => { setEventUpdate(res.data);})
+            .then((res) => { setEventUpdate(res.data); })
             .catch((err) => { console.log(err); })
-            getDat();
+        getDat();
     }
 
     const deleteEvent = async (_id) => {
         if (window.confirm('are you sure?')) {
-             await fetch(`http://localhost:8080/api/event/${_id}`, optionDELETE)
-            .then((res) => res.json())
-            .then((res) => (res.data))
-            .catch((err) => { console.log(err); })
+            await fetch(`http://localhost:8080/api/event/${_id}`, optionDELETE)
+                .then((res) => res.json())
+                .then((res) => (res.data))
+                .catch((err) => { console.log(err); })
             getDat();
         }
     }
@@ -121,7 +121,7 @@ const Events = () => {
                                     <input type="button" id="confirmUpdates" value="אישור עדכונים" onClick={() => { updateEvent(event._id) }} />
                                 </div>
                             </Popup>
-                            <input type="button" id="deleteBtn" value="מחק" onClick={ ()=>{deleteEvent(event._id) }} />
+                            <input type="button" id="deleteBtn" value="מחק" onClick={() => { deleteEvent(event._id) }} />
                             <hr></hr>
                         </span>
                     )

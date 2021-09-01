@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,9 +12,7 @@ const SyllabusComponent = () => {
 
     fetcher('/api/course')
       .then(data => {
-        console.log(data.data[1]);
         dispatch(getSyllabus(data.data[1]));
-        setSyllabusData(data?.data[0].corse);
       })
 
   }, [])

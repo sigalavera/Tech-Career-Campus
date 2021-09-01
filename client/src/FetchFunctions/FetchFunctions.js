@@ -1,5 +1,8 @@
 import fetcher from "../utils/fetcher";
 
+const api=process.env.REACT_APP_NEWS_API
+const api_key=process.env.REACT_APP_NEWS_API_KEY
+
 const token = localStorage.getItem("jwtToken");
 export const defaultHeaders = {
     Authorization: `Bearer ${token}`,
