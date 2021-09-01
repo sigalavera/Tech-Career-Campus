@@ -1,36 +1,45 @@
-import React, { useEffect, useState } from 'react'
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import { fetchSyllabus } from '../../../FetchFunctions/FetchFunctions'
-
+import React, { useEffect, useState } from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { fetchSyllabus } from "../../../FetchFunctions/FetchFunctions";
 
 const SyllabusComponent = () => {
-  const [syllabusData, setSyllabusData] = useState()
+  const [syllabusData, setSyllabusData] = useState();
 
   useEffect(() => {
+    const getCors = async () => {
+      await fetchSyllabus().then((data) => {
+        console.log(data);
+        setSyllabusData(data[1]);
+      });
+    };
 
-    fetchSyllabus()
-      .then(data => {
-        setSyllabusData(data?.data[0].corse);
-      })
-  }, [])
+    getCors();
+  }, []);
 
   return (
     <>
       <h1>סילבוס</h1>
       <VerticalTimeline>
         <h1>{syllabusData?.name}</h1>
-        {syllabusData?.CourseInformation.map((courseItem => {
+        {syllabusData?.CourseInformation.map((courseItem) => {
           return (
             <VerticalTimelineElement
-            key={courseItem.nameSubject}
+              key={courseItem.nameSubject}
               className="vertical-timeline-element--work"
-              contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-              contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+              contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+              contentArrowStyle={{
+                borderRight: "7px solid  rgb(33, 150, 243)",
+              }}
               date="2011 - present"
-              iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+              iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
             >
-              <h2 className="vertical-timeline-element-title">{courseItem.nameSubject}</h2>
+              <h2 className="vertical-timeline-element-title">
+                {courseItem.nameSubject}
+              </h2>
               <h4 className="vertical-timeline-element-subtitle">
                 <ul>
                   {courseItem.topics.map((topic, index) => {
@@ -38,14 +47,13 @@ const SyllabusComponent = () => {
                   })}
                 </ul>
               </h4>
-              <p>
-                {courseItem.summery}
-              </p>
-            </VerticalTimelineElement>)
-        }))}
-
-      </VerticalTimeline>;
+              <p>{courseItem.summery}</p>
+            </VerticalTimelineElement>
+          );
+        })}
+      </VerticalTimeline>
+      ;
     </>
-  )
+  );
 };
 export default SyllabusComponent;

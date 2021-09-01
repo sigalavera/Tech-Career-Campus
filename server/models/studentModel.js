@@ -59,6 +59,7 @@ const studentSchema = new Schema(
           ],
         },
     required:false,
+    courseId: { type: Schema.Types.ObjectId, ref: "course" },
     messages: [{ type: Schema.Types.ObjectId, ref: "forum" }],
     createBy: { type: Schema.Types.ObjectId, ref: "staff" },
   },
