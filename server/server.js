@@ -18,7 +18,6 @@ const routeLoginRegister = require('./route/loginRouting');
 const classScheduleRouting = require('./route/classScheduleRouting')
 const routeEvent = require('./route/eventsRouting')
 const isToken = require('./controller/authorization/isToken')
-const mainRout = require('./route/mainRouting')
 
 //DB connection
 const db = require('./DB');
@@ -27,14 +26,14 @@ db.on('error', () => {
 });
 
 // use route
-app.use('/api/student' ,isToken, routeStudent);
-app.use('/api/course' , isToken,routeCourse);
-app.use('/api/staff', isToken,routeStaff);
-app.use('/api/forum', isToken,routeForum);
+app.use('/api/student' ,isToken,routeStudent);
+app.use('/api/course' ,isToken,routeCourse);
+app.use('/api/staff',isToken,routeStaff);
+app.use('/api/forum',isToken,routeForum);
 app.use('/api/login',routeLoginRegister);
 app.use('/api/staff/register',isToken,routeLoginRegister);
-app.use('/api/event',isToken, routeEvent);
-app.use('/api/classSchedule', classScheduleRouting);
+app.use('/api/event',isToken,routeEvent);
+app.use('/api/classSchedule',isToken,classScheduleRouting);
 
 app.listen(PORT, () => {
     console.log(
@@ -43,6 +42,5 @@ app.listen(PORT, () => {
     )} ${chalk.blue(PORT)}`
     );
 });
-
 
 

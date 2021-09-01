@@ -14,6 +14,7 @@ const SyllabusComponent = () => {
       .then(data => {
         console.log(data.data[1]);
         dispatch(getSyllabus(data.data[1]));
+        setSyllabusData(data?.data[0].corse);
       })
 
   }, [])
