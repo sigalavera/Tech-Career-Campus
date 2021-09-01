@@ -89,7 +89,7 @@ const deleteStudentTestById = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ massage: "deleting a student test faild", error: err });
+      .json({ massage: "deleting a student test failed", error: err });
   }
 };
 

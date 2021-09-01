@@ -16,11 +16,11 @@ const ClassScheduleComponent = () => {
   }, []);
   console.log(myData);
 
-  loadCldr(
-    require("cldr-data/main/he/ca-gregorian.json"),
-    require("cldr-data/main/he/numbers.json"),
-    require("cldr-data/main/he/timeZoneNames.json")
-  );
+  // loadCldr(
+  //   require("cldr-data/main/he/ca-gregorian.json"),
+  //   require("cldr-data/main/he/numbers.json"),
+  //   require("cldr-data/main/he/timeZoneNames.json")
+  // );
  
 
   return (

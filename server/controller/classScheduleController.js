@@ -2,11 +2,17 @@ const ScheduleModel = require('../models/classScheduleModel');
 
 const getAllClasses = async (req, res) => {
 
+    try {
     await ScheduleModel.find({}, (err, result) => {
         if (err) throw err;
-        res.json({ massage: "success", data: result })
+        res.status(201).json({ massage: "success", data: result })
 
-    })
+    })        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ massage: "filed", error: error })
+    }
+
 }
 
 

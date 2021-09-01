@@ -46,12 +46,13 @@ const getCourseByName = async (req, res) => {
   }
 };
 
-const updateCorse = async () => {
-  
+const updateCorse = async (req,res) => {
+ 
 };
 
 module.exports = {
   addNewCourse,
   getAllCourses,
   getCourseByName,
+  updateCorse,
 };
