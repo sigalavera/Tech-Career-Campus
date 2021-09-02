@@ -63,8 +63,8 @@ const courseSchema = new Schema(
         },
       },
     },
-
-    createBy: [{ type: Schema.Types.ObjectId, ref: "staff" }]
+    students: [{ type: Schema.Types.ObjectId, ref: "students" }],
+    createBy: { type: Schema.Types.ObjectId, ref: "staff" }
   },
   { timestamps: true }
 );
