@@ -1,4 +1,30 @@
 const StudentModel = require("../models/studentModel");
+const StaffModel = require("../models/staffModel");
+
+const addNewStudent = async (req, res) => {
+  const staff = await StaffModel.findById(req.body.id);
+  const { firstName, lastName, age, email, courseName, password, phone} = req.body;
+  const newStudent = new StudentModel({
+    firstName:firstName,
+    lastName:lastName,
+    email:email,
+    phone:phone,
+    password:password,
+    age:age,
+    courseName:courseName,
+    createBy: staff._id
+  });
+  try {
+    await newStudent.save();
+    staff.students.push(newStudent);
+    await staff.save();
+    res
+      .status(201)
+      .json({ message: "create new student success", data: newStudent });
+  } catch (error) {
+    res.status(409).json({ message: "create new student filed", error: error });
+  }
+};
 
 const getStudent = async (req, res) => {
   try {
@@ -38,7 +64,7 @@ const addStudentTestById = async (req, res) => {
           .status(200)
           .json({
             massage: "add test to a student by name was a success",
-            data: result,
+            data: result.tests,
           });
       }
     );
@@ -60,7 +86,7 @@ const updateStudentTestById = async (req, res) => {
           .status(200)
           .json({
             massage: "updating a student test was a success",
-            data: result,
+            data: result.tests,
           });
       }
     );
@@ -83,19 +109,19 @@ const deleteStudentTestById = async (req, res) => {
           .status(200)
           .json({
             massage: "deleting a student test was a success",
-            data: result,
+            data: result.tests,
           });
-          console.log(result)
       }
     );
   } catch (err) {
     res
       .status(500)
-      .json({ massage: "deleting a student test failed", error: err });
+      .json({ massage: "deleting a student test faild", error: err });
   }
 };
 
 module.exports = {
+  addNewStudent,
   getStudent,
   getStudentGradeById,
   addStudentTestById,

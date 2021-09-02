@@ -1,10 +1,11 @@
-PUT http://localhost/8080/api/course
+POST http://localhost:8080/api/login/login
     Content-Type: application/json
 
-{
 
-   "_id":"612d1fd688b9946e00fb97ae",
-   "role":"Staff",
-   "isDone":true
-   
+{
+    "role":"Staff",
+    "email":"tali@gmail.com",
+    "password":"12345678"  
+    
 }
+
