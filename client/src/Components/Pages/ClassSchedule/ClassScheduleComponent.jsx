@@ -14,6 +14,7 @@ const ClassScheduleComponent = () => {
   useEffect(() => {
     fetchDailySchedule().then((response) => setMyData(response));
   }, []);
+  console.log(myData);
 
   loadCldr(
     require("cldr-data/main/he/ca-gregorian.json"),
