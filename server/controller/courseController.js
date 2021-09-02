@@ -89,5 +89,5 @@ module.exports = {
   addNewCourse,
   getAllCourses,
   getCourseByName,
-  // updateCorse
+  updateCorse
 };
