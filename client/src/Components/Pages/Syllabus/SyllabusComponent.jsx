@@ -17,6 +17,7 @@ const SyllabusComponent = () => {
     });
   }, []);
 
+
   return (
     <>
       <VerticalTimeline>
@@ -73,6 +74,6 @@ const SyllabusComponent = () => {
       </VerticalTimeline>
       ;
     </>
-  );
+  )
 };
 export default SyllabusComponent;
