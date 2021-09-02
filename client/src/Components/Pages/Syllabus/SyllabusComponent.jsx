@@ -16,7 +16,6 @@ const SyllabusComponent = () => {
       dispatch(getSyllabus(data?.data[1]));
     });
   }, []);
-
   return (
     <>
       <VerticalTimeline>
@@ -73,6 +72,6 @@ const SyllabusComponent = () => {
       </VerticalTimeline>
       ;
     </>
-  );
+  )
 };
 export default SyllabusComponent;

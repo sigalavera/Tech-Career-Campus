@@ -1,5 +1,16 @@
 const StaffModel = require('../models/staffModel');
+const StudentModel = require('../models/studentModel')
 
+const addNewStaff = async (req, res) => {
+  try {
+    await StaffModel.insertMany(req.body, (err, result) => {
+      if (err) console.log(err);
+      res.status(200).json({ massage: "create staff success!", data: result })
+    });
+  } catch (err) {
+    res.status(500).json({ massage: "creat new staff field", error: err });
+  }
+};
 
 const getAllStaff = async (req, res) => {
   try {
@@ -10,7 +21,7 @@ const getAllStaff = async (req, res) => {
   } catch (err) {
     res.status(500).json({ massage: "find staff filed", data: result });
   }
-};
+}
 
 const getStaffById = async (req, res) => {
   try {
@@ -21,7 +32,7 @@ const getStaffById = async (req, res) => {
   } catch (error) {
     res.status(500).json({ massage: "find by id staff filed", data: result });
   }
-};
+}
 
 const deleteStaffById = async (req, res) => {
   try {
@@ -32,7 +43,7 @@ const deleteStaffById = async (req, res) => {
   } catch (error) {
     res.status(500).json({ massage: "delete by id staff filed", data: result });
   }
-};
+}
 
 const updateStaffById = async (req, res) => {
   try {
@@ -43,7 +54,7 @@ const updateStaffById = async (req, res) => {
   } catch (error) {
     res.status(500).json({ massage: "update staff filed", data: result });
   }
-};
+}
 
 const getStudentsByStaff = async (req, res) => {
   try {
@@ -60,10 +71,11 @@ const getStudentsByStaff = async (req, res) => {
   catch (err) {
       res.status(500).json({ massage: "wrong", error: err })
   }
-};
+}
 
 
 module.exports = {
+  addNewStaff,
   getAllStaff,
   getStaffById,
   deleteStaffById,
