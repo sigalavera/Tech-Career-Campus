@@ -26,15 +26,15 @@ export const fetchSyllabus = () => {
     }
     return fetch('http://localhost:8080/api/course', { headers: defaultHeaders})
         .then((res) => res.json())
-        .then((response) => response.data)
+        .then((response) => response)
         .catch(err => {
             console.error(err);
         });
 }
 
-export const fetchDailySchedule = async() => {
-    return await fetch('http://localhost:8080/api/classSchedule' , { headers: defaultHeaders})
+export const fetchDailySchedule = () => {
+    return fetch('http://localhost:8080/api/schedule')
    .then((res) =>  res.json())
-   .then((response) => response.data)
+   .then((response) => response)
    .catch(err => console.log(err));
 };
