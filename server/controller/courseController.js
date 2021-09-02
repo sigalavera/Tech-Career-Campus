@@ -3,11 +3,12 @@ const StaffModel = require("../models/staffModel");
 
 const addNewCourse = async (req, res) => {
   const staff = await StaffModel.findById(req.body.id);
+  const { name, CourseInformation } = req.body;
   const newCourse = new CourseModel({
-    corse: req.body.corse,
+    name: name,
+    CourseInformation: CourseInformation,
     coursesCreator: staff._id,
   });
-
   try {
     await newCourse.save();
     staff.courses.push(newCourse);
@@ -45,8 +46,48 @@ const getCourseByName = async (req, res) => {
   }
 };
 
+// const updateCorse = async (req, res) => {
+//   try {
+//     // const query = {
+//     //   _id: req.body.courseId,
+//     //   CourseInformation: {
+//     //     $elemMatch: {
+//     //       _id: req.body.courseInformationId,
+//     //       topics: { $elemMatch: { _id: req.body.topicsId } },
+//     //     },
+//     //   },
+//     // };
+
+    
+//     console.log(req.body);
+//     await CourseModel.findOneAndUpdate(
+//        {_id: req.body.courseId}, 
+//        { $pull: { topics: { _id: req.body.topicsId },$set: { "topics.$.isDone" : req.body.isDone }  } },
+//       (err, result) => {
+//         if (err) throw err;
+
+//         if (result !== null) {
+//           console.log(result.CourseInformation[0].topics[0]);
+//           res
+//             .status(200)
+//             .json({ message: "update corse success!", data: result });
+//         } else {
+//           const errorNull = new Error("result is null");
+//           res
+//             .status(500)
+//             .json({ message: "update course field", error: errorNull.message });
+//         }
+//       }
+//     );
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ message: "update course field", error: err });
+//   }
+// };
+
 module.exports = {
   addNewCourse,
   getAllCourses,
   getCourseByName,
+  updateCorse,
 };

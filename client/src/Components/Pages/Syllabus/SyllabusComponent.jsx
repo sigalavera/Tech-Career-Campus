@@ -9,6 +9,12 @@ const SyllabusComponent = () => {
   const syllabus = useSelector(state => state.syllabus.state);
   const dispatch = useDispatch();
   useEffect(() => {
+    const getCors = async () => {
+      await fetchSyllabus().then((data) => {
+        console.log(data);
+        setSyllabusData(data[1]);
+      });
+    };
 
     fetcher('/api/course')
       .then(data => {
@@ -62,6 +68,6 @@ const SyllabusComponent = () => {
 
       </VerticalTimeline>;
     </>
-  )
+  );
 };
 export default SyllabusComponent;
