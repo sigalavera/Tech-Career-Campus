@@ -33,7 +33,7 @@ export const fetchSyllabus = () => {
 }
 
 export const fetchDailySchedule = async() => {
-    return await fetch('http://localhost:8080/api/classSchedule')
+    return await fetch('http://localhost:8080/api/classSchedule' , { headers: defaultHeaders})
    .then((res) =>  res.json())
    .then((response) => response.data)
    .catch(err => console.log(err));

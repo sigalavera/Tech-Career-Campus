@@ -1,5 +1,6 @@
 const StaffModel = require("../../models/staffModel");
 const StudentModel = require("../../models/studentModel");
+const CourseModel = require("../../models/courseModel");
 const bcrypt = require("bcrypt");
 const { model } = require("mongoose");
 const SECRET_KEY = process.env.SECRET_KEY;
@@ -8,6 +9,7 @@ const validateRegisterInput = require("./registerValidator");
 const register = async (req, res) => {
   if (req.body.registeredAs === "Staff") {
     const { errors, isValid } = validateRegisterInput(req.body);
+    
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -84,7 +86,7 @@ const register = async (req, res) => {
                 error: error,
               });
           }
-
+          
           const { firstName, lastName, age, email, courseName, phone } =
             req.body;
           const newStudent = new StudentModel({
@@ -96,6 +98,7 @@ const register = async (req, res) => {
             age: age,
             courseName: courseName,
             createBy: staff._id,
+            
           });
           try {
             await newStudent.save();
