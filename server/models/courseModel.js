@@ -64,7 +64,7 @@ const courseSchema = new Schema(
       },
     },
 
-    coursesCreator: [{ type: Schema.Types.ObjectId, ref: "staff" }]
+    createBy: [{ type: Schema.Types.ObjectId, ref: "staff" }]
   },
   { timestamps: true }
 );
