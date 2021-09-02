@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const courseSchema = new Schema(
   {
-
+    corse:{
+      type: {
         name: {
           type: String,
           required: true,
@@ -18,7 +19,6 @@ const courseSchema = new Schema(
               topics: {
                 type: [
                   {
-                    
                     subject:{
                       type:String,
                       required:true
@@ -61,8 +61,10 @@ const courseSchema = new Schema(
             },
           ],
         },
-        students: [{ type: Schema.Types.ObjectId, ref: "student" }],
-        creatBy: { type: Schema.Types.ObjectId, ref: "staff" },
+      },
+    },
+
+    coursesCreator: [{ type: Schema.Types.ObjectId, ref: "staff" }]
   },
   { timestamps: true }
 );
