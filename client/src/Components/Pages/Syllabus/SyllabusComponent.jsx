@@ -12,7 +12,8 @@ const SyllabusComponent = () => {
   const syllabus = useSelector((state) => state.syllabus.state);
   const dispatch = useDispatch();
   useEffect(() => {
-    fetcher("/api/course").then((data) => {
+    fetcher("/api/course")
+    .then((data) => {
       dispatch(getSyllabus(data?.data[1]));
     });
   }, []);
