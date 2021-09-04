@@ -1,20 +1,18 @@
 const StaffModel = require("../../models/staffModel");
 const StudentModel = require("../../models/studentModel");
 const bcrypt = require("bcrypt");
-const { model } = require("mongoose");
-const SECRET_KEY = process.env.SECRET_KEY;
 const validateRegisterInput = require("./registerValidator");
 
 const register = async (req, res) => {
   if (req.body.registeredAs === "Staff") {
     const { errors, isValid } = validateRegisterInput(req.body);
     if (!isValid) {
-      return res.status(400).json(errors);
+      return res.status(401).json(errors);
     }
     await StaffModel.findOne({ email: req.body.email }, (err, staff) => {
       if (err) throw err;
       if (staff) {
-        return res.status(400).json({ massage: "email already exists" });
+        return res.status(401).json({ massage: "email already exists" });
       }
       
       //Password Encryption Before That it enters to the database
@@ -77,7 +75,7 @@ const register = async (req, res) => {
           const staff = await StaffModel.findById(req.body.id);
           if (!staff) {
             res
-              .status(401)
+              .status(400)
               .json({
                 success: false,
                 message: "find staff filed",
@@ -110,7 +108,7 @@ const register = async (req, res) => {
               });
           } catch (error) {
             res
-              .status(401)
+              .status(400)
               .json({
                 success: false,
                 message: "create new student filed",
