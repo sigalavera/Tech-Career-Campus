@@ -42,19 +42,19 @@ const Events = () => {
         headers: defaultHeaders,
     }
 
-    useEffect(async () => {
-        await getDat();
+    useEffect( () => {
+        getDat();
     }, [])
 
     const getDat = async () => {
-      return await fetch("http://localhost:8080/api/event", {method:'GET', headers: defaultHeaders })
+       await fetch("http://localhost:8080/api/event", { headers: defaultHeaders })
             .then((res) => res.json())
             .then((response) => setEvents(response.data))
             .catch(err => { console.error("GET ALL FAIL") });
     }
 
     const sendEvent = async () => {
-       return await fetch("http://localhost:8080/api/event", optionPOST)
+        await fetch("http://localhost:8080/api/event", optionPOST)
             .then((res) => res.json())
             .then((res) => { setEvents([...events, ...res.data]); })
             .catch(err => { console.error("GET ALL NOT SAND"); });

@@ -11,7 +11,6 @@ const isToken = (req, res, next) => {
         res.redirect('./login')
       } else {
         req.body = { ...req.body, role:payload.role}
-        console.log(req.body);
         next();
       }
     } catch (error) {
