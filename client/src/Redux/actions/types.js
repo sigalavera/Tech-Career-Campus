@@ -16,3 +16,8 @@ export const FETCH_ALL = "FETCH_ALL";
 //SYLLABUS
 
 export const GET_SYLLABUS="GET_SYLLABUS"
+
+//Staff
+
+export const GET_STAFF_LIST="GET_STAFF_LIST"
+export const ADD_STAFF="ADD_STAFF"

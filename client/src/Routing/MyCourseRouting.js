@@ -7,6 +7,7 @@ import AdminGradesComponent from '../Components/Pages/Grades/AdminGradesComponen
 import Syllabus from '../Components/Pages/Syllabus/SyllabusComponent'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
+import StaffComponents from '../Components/Pages/Staff/StaffComponents';
 
 
 const MyCourseRouting = () => {
@@ -35,6 +36,9 @@ const MyCourseRouting = () => {
                 </Tab>
                 <Tab eventKey="edit-course-schedual" title="סגל" disabled={role ==="student" ? false : true}>
                     <AdminGradesComponent />
+                </Tab>
+                <Tab eventKey="staff" title="צוות" disabled={role ==="student" ? false : true}>
+                    <StaffComponents/>
                 </Tab>
             </Tabs>
         </>
