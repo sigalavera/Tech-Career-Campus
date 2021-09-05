@@ -55,8 +55,6 @@ const register = async (req, res) => {
         bcrypt.hash(req.body.password, salt, (err, hash) => {
           if (err) throw err;
           req.body.password = hash;
-
-          const {firstName, lastName, email,phone,password, age} = req.body
           
           StudentModel.insertMany(req.body.student, (err) => {
             if (err) {
