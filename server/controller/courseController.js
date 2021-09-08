@@ -186,6 +186,40 @@ const updateSubSubject = async (req, res) => {
   }
 
 };
+const updateSubject = async (req, res) => {
+  try {
+    const field = await req.body.field
+    const SubjectPath = `CourseInformation.$[objcet].${field}`
+    const SubjectField = {}
+    SubjectField[SubjectPath] = req.body.newValue
+    await CourseModel.findOneAndUpdate(
+     { _id: req.body._id},
+      { $set:  SubjectField},
+      {
+        arrayFilters: [{ "objcet._id": { _id: req.body.Subject_id } }],
+        upsert: true
+      },
+      (err, result) => {
+        if (err) throw err;
+
+        if (result !== null) {
+          res
+            .status(200)
+            .json({ message: "update corse subject was success!", data: result });
+        } else {
+          const errorNull = new Error("result is null");
+          res
+            .status(500)
+            .json({ message: "update course subject field", error: errorNull.message });
+        }
+      }
+    );
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "update course subject field", error: err });
+  }
+
+};
 
 module.exports = {
   addNewCourse,
@@ -193,5 +227,6 @@ module.exports = {
   getCourseByName,
   deleteSubSubject,
   addSubSubject,
-  updateSubSubject
+  updateSubSubject,
+  updateSubject
 };
