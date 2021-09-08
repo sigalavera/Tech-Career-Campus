@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <button className="btn" onClick={() => logout()}>
-        logout
+        התנתק
       </button>
       <Header />
       {localStorage.getItem("jwtToken") ? (

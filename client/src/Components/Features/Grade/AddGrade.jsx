@@ -41,7 +41,6 @@ const AddGrade = ({ studentId }) => {
         className="btn"
         onClick={(e) => {
           dispatch(addTest(newTest));
-          // e.preventDefault();
         }}
       >
         Add test

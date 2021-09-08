@@ -4,6 +4,7 @@ import { getStudents } from "../../../Redux/actions/studentsActions";
 import { getStudent } from "../../../Redux/actions/studentActions";
 import EditGradesComponent from "../../Features/Grade/EditGradeComponent";
 import "./admin.css";
+import PageHeader from "../../Features/PageHeader/PageHeaderComponent";
 const AdminGradesComponent = () => {
   const dispatch = useDispatch();
   const students = useSelector((state) => state.students);
@@ -13,7 +14,7 @@ const AdminGradesComponent = () => {
   return (
     <div className="admin-grade-contaniner">
       <div>
-        <h1>ציוני סטודנטים</h1>
+        <PageHeader title={"ציוני סטודנטים"} />
         <div className="wrap">
           <div className="search">
             <input className="search-term" type="text" />
@@ -40,8 +41,8 @@ const AdminGradesComponent = () => {
             </tr>
           </thead>
           <tbody>
-            {students?.map((student, index) => (
-              <tr key={index}>
+            {students?.map((student) => (
+              <tr key={student._id}>
                 <td>{student?.firstName}</td>
                 <td>{student?.lastName}</td>
                 <td>{student?.courseName}</td>

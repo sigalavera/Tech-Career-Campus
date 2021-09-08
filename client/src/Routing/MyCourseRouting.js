@@ -53,10 +53,10 @@ const MyCourseRouting = () => {
                         <CreatCourse />
                     </Tab> : ""
                 }
-
-
-
             </Tabs>
+            {/* {
+                courses.map(course => <button>{course.name}</button>)
+            } */}
         </>
     )
 }

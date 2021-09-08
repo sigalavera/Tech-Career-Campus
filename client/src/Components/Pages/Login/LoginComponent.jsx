@@ -128,7 +128,7 @@ const Login = ({ errors }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Tech Carrier
+                  טק קריירה
                 </a>
               </h1>
             </div>
@@ -136,11 +136,11 @@ const Login = ({ errors }) => {
               <div className="formbg">
                 <div className="formbg-inner padding-horizontal--48">
                   <span className="padding-bottom--15">
-                    Sign in to your account
+                    התחבר לחשבונך
                   </span>
                   <form id="stripe-login">
                     <div className="field padding-bottom--24">
-                      <label htmlFor="email">Email</label>
+                      <label htmlFor="email">אימייל</label>
                       <input
                         type="email"
                         name="email"
@@ -162,7 +162,7 @@ const Login = ({ errors }) => {
                       <p className="errors">{errors?.password}</p>
                     </div>
                     <div>
-                      <p>Login as</p>
+                      <p>התחבר כ</p>
                       <label>
                         <input
                           type="radio"
@@ -170,7 +170,7 @@ const Login = ({ errors }) => {
                           name="role"
                           value="Student"
                         />
-                        Student
+                        סטודנט
                       </label>
                       <label>
                         <input
@@ -179,7 +179,7 @@ const Login = ({ errors }) => {
                           name="role"
                           value="Staff"
                         />
-                        Staff
+                      צוות
                       </label>
                     </div>
                     <div className="field padding-bottom--24">
