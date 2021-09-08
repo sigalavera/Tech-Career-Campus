@@ -189,12 +189,15 @@ const updateSubSubject = async (req, res) => {
 const updateSubject = async (req, res) => {
   try {
     const field = await req.body.field
+    if (field === "topics" || field === "links") {
+      throw new Error("you cant update arrays only static fields")
+    }
     const SubjectPath = `CourseInformation.$[objcet].${field}`
     const SubjectField = {}
     SubjectField[SubjectPath] = req.body.newValue
     await CourseModel.findOneAndUpdate(
-     { _id: req.body._id},
-      { $set:  SubjectField},
+      { _id: req.body._id },
+      { $set: SubjectField },
       {
         arrayFilters: [{ "objcet._id": { _id: req.body.Subject_id } }],
         upsert: true
@@ -216,7 +219,7 @@ const updateSubject = async (req, res) => {
     );
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "update course subject field", error: err });
+    res.status(500).json({ message: "update course subject field", error: err.message });
   }
 
 };
