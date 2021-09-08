@@ -6,7 +6,7 @@ const register = require('../controller/authorization/register');
 const isToken = require('../controller/authorization/isToken')
 const {authRole} = require('../controller/authentication/auth');
 
-router.post('/log', login);
+router.post('/', login);
 router.post('/',isToken,authRole("Staff"), register);
 router.get('/logout',logout);
 
