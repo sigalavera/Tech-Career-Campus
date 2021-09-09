@@ -31,7 +31,6 @@ app.use('/api/course' ,isToken,routeCourse);
 app.use('/api/staff',isToken,routeStaff);
 app.use('/api/forum',isToken,routeForum);
 app.use('/api',routeLoginRegister);
-app.use('/api/register',isToken,routeLoginRegister);
 app.use('/api/event',isToken,routeEvent);
 app.use('/api/classSchedule',isToken,classScheduleRouting);
 
