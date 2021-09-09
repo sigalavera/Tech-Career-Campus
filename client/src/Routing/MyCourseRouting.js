@@ -9,6 +9,7 @@ import Tab from 'react-bootstrap/Tab'
 import { useSelector } from 'react-redux';
 import Students from '../Components/Pages/Sudents/StudentsComponent';
 import CreatCourse from '../Components/Pages/CreatCourse/CreatCourseComponent';
+import StaffComponents from '../Components/Pages/Staff/StaffComponents';
 
 
 const MyCourseRouting = () => {
@@ -51,6 +52,12 @@ const MyCourseRouting = () => {
                 {
                     user.role === "Staff" ? <Tab eventKey="Creat-course" title="יצירת קורס" >
                         <CreatCourse />
+                    </Tab> : ""
+                }
+
+{
+                    user.role === "Staff" ? <Tab eventKey="staff" title="סגל" >
+                        <StaffComponents />
                     </Tab> : ""
                 }
 

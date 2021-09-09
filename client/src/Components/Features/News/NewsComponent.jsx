@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import fetcher from "../../../utils/fetcher";
-import Ticker from "react-ticker";
+// import Ticker from "react-ticker";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
@@ -10,15 +10,17 @@ const News = () => {
 
   // useEffect(() => {
   //   fetch(`${newsApi}${newsApiKey}`)
-  //     .then((response) => console.log(response))
-  //     .then((response) => setNewsData(response?.articles))
-  //     .catch(err=> console.log(err))
-  // }, [newsApi, newsApiKey]);
+  //     .then((response) => response.json())
+  //     .then((res) => setNewsData(res))
+  //     .catch(err => console.log(err))
+
+  // }, []);
+  // console.log(newsData);
 
 
   return (
     <div className="news-ticker-div">
-      <Ticker mode="smooth" direction="toRight">
+      {/* <Ticker mode="smooth" direction="toRight">
         {({ index }) => (
           <>
             <h1>{newsData[index]?.source?.name}</h1>
@@ -27,7 +29,7 @@ const News = () => {
             <img src={newsData[index]?.urlToImage} alt="" />
           </>
         )}
-      </Ticker>
+      </Ticker> */}
     </div>
   );
 };

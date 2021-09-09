@@ -11,7 +11,7 @@ import { addStuff } from '../../../Redux/actions/staffAction';
 
 
 const AddStaffComponent = ({ open, handleClose }) => {
-    const [staffUser, setstaffUser] = useState({})
+    const [staffUser, setstaffUser] = useState({ registeredAs: "Staff" })
     const dispatch = useDispatch();
 
     const createStaff = (e) => {
@@ -21,9 +21,10 @@ const AddStaffComponent = ({ open, handleClose }) => {
         })
     }
     const addStaff = (e) => {
+
         dispatch(addStuff(staffUser));
-        setstaffUser({})
-        e.preventDefault();
+        setstaffUser({ registeredAs: "Staff" });
+
 
     }
 
@@ -91,19 +92,10 @@ const AddStaffComponent = ({ open, handleClose }) => {
                         fullWidth
                         onChange={(e) => createStaff(e)}
                     />
-                    <TextField
-                        name="IdNumber"
-                        margin="dense"
-                        id="name"
-                        label="ID Number"
-                        type="text"
-                        fullWidth
-                        onChange={(e) => createStaff(e)}
-                    />
 
                 </DialogContent>
                 <DialogActions>
-                    <Button color="primary">
+                    <Button color="primary" onClick={(e) => addStaff(e)}>
                         צור משתמש
                     </Button>
                     <Button onClick={() => handleClose()}>

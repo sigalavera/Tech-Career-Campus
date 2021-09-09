@@ -9,9 +9,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
 import Button from '@material-ui/core/Button';
 import AddStaffComponent from '../../Features/AddStaffForm/AddStaffComponent';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { deleteStaff } from '../../../Redux/actions/staffAction';
 
 
 
@@ -23,7 +24,9 @@ const StaffComponents = () => {
     const dispatch = useDispatch();
     const staff = useSelector((state) => state.staff.state);
 
-
+    const deletestaffHandler = (_id) => {
+        dispatch(deleteStaff(_id))
+    }
     useEffect(() => dispatch(getStaff()), [dispatch]);
 
     return (
@@ -36,6 +39,14 @@ const StaffComponents = () => {
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>
+                            <TableCell>
+                                <Button variant="contained" onClick={() => setOpen(!open)}>
+                                    הוסף איש צוות
+                                </Button>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell></TableCell>
                             <TableCell>ID</TableCell>
                             <TableCell align="right">First Name</TableCell>
                             <TableCell align="right">Last Name</TableCell>
@@ -45,10 +56,13 @@ const StaffComponents = () => {
                             <TableCell align="right">Students</TableCell>
                         </TableRow>
                     </TableHead>
-                    
                     <TableBody>
                         {staff?.map((staffItem) => (
+
                             <TableRow key={staffItem._id} >
+                                <TableCell>
+                                    <DeleteIcon onClick={() => deletestaffHandler(staffItem._id)} />
+                                </TableCell>
                                 <TableCell component="th" scope="row">
                                     {staffItem._id}
                                 </TableCell>
@@ -60,13 +74,7 @@ const StaffComponents = () => {
                                 <TableCell align="right">{staffItem.students.length}</TableCell>
                             </TableRow>
                         ))}
-                        <TableRow>
-                            <TableCell>
-                                <Button variant="contained" onClick={() => setOpen(!open)}>
-                                    הוסף איש צוות
-                                </Button>
-                            </TableCell>
-                        </TableRow>
+
                     </TableBody>
                 </Table>
             </TableContainer>
