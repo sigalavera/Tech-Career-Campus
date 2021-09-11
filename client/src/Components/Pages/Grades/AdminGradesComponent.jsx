@@ -7,7 +7,7 @@ import "./admin.css";
 import PageHeader from "../../Features/PageHeader/PageHeaderComponent";
 const AdminGradesComponent = () => {
   const dispatch = useDispatch();
-  const students = useSelector((state) => state.students);
+const { students } = useSelector((state) => state.students);
   const [openTests, setOpenTests] = useState(false);
   useEffect(() => dispatch(getStudents()), [dispatch, openTests]);
 

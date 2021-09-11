@@ -23,11 +23,7 @@ const Layout = ({ children }) => {
         התנתק
       </button>
       <Header />
-      {localStorage.getItem("jwtToken") ? (
-        children
-      ) : (
-        <Login errors={user.errors} />
-      )}
+      {token ? children : <Login errors={user.errors} />}
       <Footer />
     </div>
   );

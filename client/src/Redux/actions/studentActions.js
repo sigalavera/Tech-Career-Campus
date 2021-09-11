@@ -1,5 +1,5 @@
 import fetcher from '../../utils/fetcher';
-import { CREATE_STUDENT, EDIT_GRADE, ADD_TEST, DELETE_TEST, GET_STUDENT } from './types'
+import {  EDIT_GRADE, ADD_TEST, DELETE_TEST, GET_STUDENT } from './types'
 
 export const getStudent = (student) => dispatch => {
     return dispatch({
@@ -10,7 +10,7 @@ export const getStudent = (student) => dispatch => {
 
 export const editGrade = (updateTest) => async dispatch => {
 
-    await fetcher(`http://localhost:8080/api/student/updateTest/${updateTest.studentId}`, {
+    await fetcher(`/api/student/updateTest/${updateTest.studentId}`, {
         method: 'PUT',
         body: JSON.stringify({
             id: updateTest.gradeId,

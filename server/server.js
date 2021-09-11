@@ -34,6 +34,7 @@ app.use('/api', routeLoginRegister);
 app.use('/api/event', isToken, routeEvent);
 app.use('/api/classSchedule', isToken, classScheduleRouting);
 
+
 app.listen(PORT, () => {
     console.log(
         `${chalk.green('tech_career')} ${chalk.yellow(
