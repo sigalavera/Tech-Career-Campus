@@ -18,6 +18,7 @@ const AdminGradesComponent = () => {
           <div className="search">
             <input className="search-term" type="text" />
             <button className="search-button">
+              
               <i className="fa fa-search"></i>
             </button>
           </div>

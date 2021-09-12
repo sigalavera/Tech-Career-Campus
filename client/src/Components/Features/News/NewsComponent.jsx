@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./news.css";
 import fetcher from "../../../utils/fetcher";
 import Ticker from "react-ticker";
 
@@ -17,6 +18,7 @@ const News = () => {
 
 
   return (
+    <div className="BodyNew">
     <div className="news-ticker-div">
       <Ticker mode="smooth" direction="toRight">
         {({ index }) => (
@@ -28,6 +30,7 @@ const News = () => {
           </>
         )}
       </Ticker>
+    </div>
     </div>
   );
 };
