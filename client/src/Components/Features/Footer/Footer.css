@@ -114,7 +114,7 @@
     width: 130px;
     height: 40px; 
 }
-h4 {
+.title2>h4 {
      /* border: 1px solid black;  */
     display: flex;
     justify-content: start; 
