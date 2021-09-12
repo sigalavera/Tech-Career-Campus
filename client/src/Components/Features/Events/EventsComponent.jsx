@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import "./Events.css";
 import { useState } from 'react';
 import Popup from 'reactjs-popup';
 
@@ -97,6 +98,7 @@ const Events = () => {
     }
 
     return (
+        <div className="Body">
         <div>
             <input type="button" id="sendBtn" value="שלח" onClick={sendEvent} />
             <br></br>
@@ -104,8 +106,9 @@ const Events = () => {
             <br></br>
             <textarea name="massage" id="massage" cols="100" rows="10" value={newEvent.massage} placeholder="הקלד כאן" onChange={(e) => { hendleChange(e) }}></textarea>
             {
-                events?.map((event) => {
+                events?.map((event, index) => {
                     return (
+                        <div className="EventsNews">
                         <span key={event._id}>
                             שם הארוע :{event.eventName}
                             <br></br>
@@ -123,9 +126,11 @@ const Events = () => {
                             <input type="button" id="deleteBtn" value="מחק" onClick={() => { deleteEvent(event._id) }} />
                             <hr></hr>
                         </span>
+                        </div>
                     )
                 })
             }
+        </div>
         </div>
     )
 }
