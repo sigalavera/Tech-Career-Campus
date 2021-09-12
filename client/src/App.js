@@ -12,10 +12,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App"
-        style={{
-          background: `url(${backgroundImage})`,
-          backgroundRepeat: 'no-repeat',
-        }}
+        
       >
         <Router>
           <Layout >
