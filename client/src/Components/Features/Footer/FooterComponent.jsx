@@ -100,7 +100,6 @@ const Footer = () => {
         <div className="footer">
           <p className="copyright-text">
             Copyright &copy; 2021 All Rights Reserved by
-            <a href="#"> </a>
           </p>
         </div>
       </div>
