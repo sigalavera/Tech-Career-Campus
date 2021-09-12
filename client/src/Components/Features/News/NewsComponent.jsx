@@ -17,7 +17,7 @@ const News = () => {
 
   return (
     <div className="news-ticker-div">
-      {/* <Ticker mode="smooth" direction="toRight">
+      <Ticker mode="smooth" direction="toRight">
         {({ index }) => (
           <>
             <h1>{newsData[index]?.source?.name}</h1>
@@ -26,7 +26,7 @@ const News = () => {
             <img src={newsData[index]?.urlToImage} alt="" />
           </>
         )}
-      </Ticker> */}
+      </Ticker> 
     </div>
   );
 };
