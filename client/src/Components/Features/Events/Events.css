@@ -1,5 +1,5 @@
 
-.Updete{
+.Body{
     display: flex;
     justify-content: center;
     padding-top: 50px;
@@ -14,6 +14,7 @@
     height: 30px;
 }
 
+
 textarea ,#eventName{
     border-radius: 4px;
     width: 200px;
@@ -24,20 +25,23 @@ textarea ,#massage{
     width: 200px;
     height: 70px;
 }
-.eventNew{
+.EventsNews{
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     border: 1px solid black;
     border-radius: 4px;
     background-color: rgb(250, 250, 250);
     width: 200px;
-    height: 140px;
+    height: 120px;
 }
-.eventNew input{
-    width: 60px;
+.EventsNews input{
+    
+    font-size: 15px;
+    width: 50px;
+    height: 30px;
     
 
 }
