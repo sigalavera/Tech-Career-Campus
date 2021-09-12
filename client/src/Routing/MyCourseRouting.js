@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CourseSchedule from '../Components/Pages/CourseSchedule/CourseScheduleComponent';
 
 import StudentGradesComponent from '../Components/Pages/Grades/StudentGradesComponent'
@@ -6,14 +6,21 @@ import AdminGradesComponent from '../Components/Pages/Grades/AdminGradesComponen
 import Syllabus from '../Components/Pages/Syllabus/SyllabusComponent'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Students from '../Components/Pages/Sudents/StudentsComponent';
 import CreatCourse from '../Components/Pages/CreatCourse/CreatCourseComponent';
+<<<<<<< HEAD
 import StaffComponents from '../Components/Pages/Staff/StaffComponents';
+=======
+import { getCourses } from '../Redux/actions/coursesActions';
+>>>>>>> 99add7ef50b8d22cefcf7d8666a2a7f376a79df4
 
 
 const MyCourseRouting = () => {
-    const user = useSelector(state => state.user)
+    const dispatch = useDispatch()
+    useEffect(() => dispatch(getCourses()), [])
+    const {user} = useSelector(state => state.user);
+    // const courses = useSelector(state => state.courses);
     return (
         <>
             <Tabs
@@ -54,6 +61,7 @@ const MyCourseRouting = () => {
                         <CreatCourse />
                     </Tab> : ""
                 }
+<<<<<<< HEAD
 
 {
                     user.role === "Staff" ? <Tab eventKey="staff" title="סגל" >
@@ -63,7 +71,12 @@ const MyCourseRouting = () => {
 
 
 
+=======
+>>>>>>> 99add7ef50b8d22cefcf7d8666a2a7f376a79df4
             </Tabs>
+            {/* {
+                courses.map(course => <button>{course.name}</button>)
+            } */}
         </>
     )
 }

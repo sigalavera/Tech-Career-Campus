@@ -20,12 +20,10 @@ const AddStaffComponent = ({ open, handleClose }) => {
             [e.target.name]: e.target.value
         })
     }
-    const addStaff = (e) => {
+    const addStaff = () => {
 
         dispatch(addStuff(staffUser));
         setstaffUser({ registeredAs: "Staff" });
-
-
     }
 
 
@@ -46,6 +44,8 @@ const AddStaffComponent = ({ open, handleClose }) => {
                         type="text"
                         fullWidth
                         onChange={(e) => createStaff(e)}
+                        value={staffUser.firstName}
+                        
                     />
                     <TextField
                         name="lastName"
@@ -55,6 +55,8 @@ const AddStaffComponent = ({ open, handleClose }) => {
                         type="text"
                         fullWidth
                         onChange={(e) => createStaff(e)}
+                        value={staffUser.lastName}
+
                     />
                     <TextField
                         name="email"
@@ -64,6 +66,8 @@ const AddStaffComponent = ({ open, handleClose }) => {
                         type="email"
                         fullWidth
                         onChange={(e) => createStaff(e)}
+                        value={staffUser.email}
+
                     />
                     <TextField
                         name="password"
@@ -73,6 +77,8 @@ const AddStaffComponent = ({ open, handleClose }) => {
                         type="password"
                         fullWidth
                         onChange={(e) => createStaff(e)}
+                        value={staffUser.password}
+
                     />
                     <TextField
                         name="phone"
@@ -82,6 +88,8 @@ const AddStaffComponent = ({ open, handleClose }) => {
                         type="phone"
                         fullWidth
                         onChange={(e) => createStaff(e)}
+                        value={staffUser.phone}
+
                     />
                     <TextField
                         name="age"
@@ -91,6 +99,8 @@ const AddStaffComponent = ({ open, handleClose }) => {
                         type="number"
                         fullWidth
                         onChange={(e) => createStaff(e)}
+                        value={staffUser.age}
+
                     />
 
                 </DialogContent>

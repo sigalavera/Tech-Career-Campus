@@ -22,7 +22,7 @@ const StaffComponents = () => {
 
     const [open, setOpen] = useState(false)
     const dispatch = useDispatch();
-    const staff = useSelector((state) => state.staff.state);
+    const staff = useSelector((state) => state.staff);
 
     const deletestaffHandler = (_id) => {
         dispatch(deleteStaff(_id))
@@ -33,7 +33,6 @@ const StaffComponents = () => {
         <div>
             {
                 open ? <AddStaffComponent open={open} handleClose={() => setOpen(!open)} /> : ""
-
             }
             <TableContainer component={Paper}>
                 <Table aria-label="simple table">
