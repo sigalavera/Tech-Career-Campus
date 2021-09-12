@@ -1,5 +1,6 @@
 const StaffModel = require("../../models/staffModel");
 const StudentModel = require("../../models/studentModel");
+const CourseModel = require("../../models/courseModel");
 const bcrypt = require("bcrypt");
 const validateRegisterInput = require("./registerValidator");
 
@@ -16,10 +17,7 @@ const register = async (req, res) => {
         return res.status(401).json({ massage: "email already exists" });
       }
 
-<<<<<<< HEAD
-=======
       //Password Encryption Before That it enters to the database
->>>>>>> 96efa1fb421c8de9c7d70de38ca1ba1a47b9adc8
       bcrypt.genSalt(12, (err, salt) => {
         bcrypt.hash(req.body.password, salt, async (err, hash) => {
           if (err) throw err;
@@ -86,8 +84,8 @@ const register = async (req, res) => {
               });
           }
 
-          const { firstName, lastName, age, email, courseName, phone } =
-            req.body;
+          const { firstName, lastName, age, email, courseName, phone } = req.body;
+          const course = await CourseModel.findById(req.body.idCourse)
           const newStudent = new StudentModel({
             firstName: firstName,
             lastName: lastName,
@@ -97,11 +95,14 @@ const register = async (req, res) => {
             age: age,
             courseName: courseName,
             createBy: staff._id,
+            courseId: course._id
           });
           try {
             await newStudent.save();
             staff.students.push(newStudent);
+            course.students.push(newStudent);
             await staff.save();
+            await course.save();
             res
               .status(201)
               .json({
