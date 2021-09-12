@@ -98,22 +98,21 @@ const Events = () => {
     }
 
     return (
-        
-            <div className="Updete">
-                <div>             
-                    <textarea name="eventName" id="eventName" cols="100" rows="0.5" value={newEvent.eventName} placeholder="שם האירוע" onChange={(e) => { hendleChange(e) }}></textarea>
-                    <br></br>
-                    <textarea name="massage" id="massage" cols="100" rows="10" value={newEvent.massage} placeholder="הקלד כאן" onChange={(e) => { hendleChange(e) }}></textarea>
-                    <br></br>
-                    
-                    <input type="button" id="sendBtn" value="שלח" onClick={sendEvent} />
-                    
-                    {
-                        events?.map((event, index) => {
-                            return (
-                                
-                                <span className="eventNew" key={event._id}>
-                                    שם הארוע :{event.eventName}
+        <div>
+            <input type="button" id="sendBtn" value="שלח" onClick={sendEvent} />
+            <br></br>
+            <textarea name="eventName" id="eventName" cols="100" rows="0.5" value={newEvent.eventName} placeholder="שם האירוע" onChange={(e) => { hendleChange(e) }}></textarea>
+            <br></br>
+            <textarea name="massage" id="massage" cols="100" rows="10" value={newEvent.massage} placeholder="הקלד כאן" onChange={(e) => { hendleChange(e) }}></textarea>
+            {
+                events?.map((event) => {
+                    return (
+                        <span key={event._id}>
+                            שם הארוע :{event.eventName}
+                            <br></br>
+                            הודעה :{event.massage}
+                            <br></br>
+                                    <textarea cols="100" rows="0.5" name="eventName" id="some" value={eventUpdate.eventName} onChange={(e) => { hendleChange1(e) }}></textarea>
                                     <br></br>
                             הודעה :{event.massage}
                                     <br></br>
@@ -135,7 +134,7 @@ const Events = () => {
                         })
                     }
                 </div>
-            </div>
+        
         
     )
 }
