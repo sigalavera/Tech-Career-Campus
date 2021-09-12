@@ -26,14 +26,11 @@ export const FETCH_ALL = "FETCH_ALL";
 
 export const GET_SYLLABUS="GET_SYLLABUS"
 
-<<<<<<< HEAD
 //Staff
 
 export const GET_STAFF_LIST="GET_STAFF_LIST"
 export const ADD_STAFF="ADD_STAFF"
 export const DELETE_STAFF="DELETE_STAFF"
-=======
 // Course
 
 export const GET_COURSES = "GET_COURSES"
->>>>>>> 99add7ef50b8d22cefcf7d8666a2a7f376a79df4

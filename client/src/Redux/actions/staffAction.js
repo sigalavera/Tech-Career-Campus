@@ -15,7 +15,7 @@ export const getStaff = () => async dispatch => {
 export const addStuff = (staff) => async dispatch => {
 
     try {
-        await fetcher('http://localhost:8080/api/register', {
+        await fetcher('/api/register', {
             method: 'POST',
             body: JSON.stringify({
                 registeredAs: staff.registeredAs,
@@ -42,7 +42,7 @@ export const addStuff = (staff) => async dispatch => {
 export const deleteStaff = (staffId) => async dispatch => {
 
     try {
-        await fetcher('http://localhost:8080/api/staff', {
+        await fetcher('/api/staff', {
             method: 'DELETE',
             body: JSON.stringify({
                 id: staffId

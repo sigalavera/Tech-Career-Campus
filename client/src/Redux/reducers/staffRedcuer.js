@@ -13,7 +13,7 @@ const staffRedcuer = (state = [], action) => {
                 ...state, action.payload
             ]
         case DELETE_STAFF:
-            return state.filter((item) => { return item._id !== action.payload._id })
+            return state.filter((item) =>  item._id !== action.payload._id )
 
         default:
             return state;
