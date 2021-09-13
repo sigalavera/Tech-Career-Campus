@@ -27,7 +27,7 @@ const StudentGradesComponent = () => {
   return (
     <>
       <PageHeader title={"הציונים שלי"} />
-      {student?.tests.map((test) => {
+      {student?.tests?.map((test) => {
         return (
           <div key={test._id}>
             <h3>{test.name}</h3>
