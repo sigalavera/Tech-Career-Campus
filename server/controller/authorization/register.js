@@ -100,13 +100,6 @@ const register = async (req, res) => {
             staff.students.push(newStudent);
             course.students.push(newStudent);
             await staff.save();
-<<<<<<< HEAD
-            res.status(201).json({
-              success: true,
-              message: "create new student success",
-              data: newStudent,
-            });
-=======
             await course.save();
             res
               .status(201)
@@ -115,7 +108,6 @@ const register = async (req, res) => {
                 message: "create new student success",
                 data: newStudent,
               });
->>>>>>> main
           } catch (error) {
             res.status(400).json({
               success: false,

@@ -26,15 +26,6 @@ db.on('error', () => {
 });
 
 // use route
-<<<<<<< HEAD
-app.use('/api/student' ,isToken,routeStudent);
-app.use('/api/course' ,isToken,routeCourse);
-app.use('/api/staff',isToken,routeStaff);
-app.use('/api/forum',isToken,routeForum);
-app.use('/api',routeLoginRegister);
-app.use('/api/event',isToken,routeEvent);
-app.use('/api/classSchedule',isToken,classScheduleRouting);
-=======
 app.use('/api/student', isToken, routeStudent);
 app.use('/api/course', isToken, routeCourse);
 app.use('/api/staff', isToken, routeStaff);
@@ -43,7 +34,6 @@ app.use('/api', routeLoginRegister);
 app.use('/api/event', isToken, routeEvent);
 app.use('/api/classSchedule', isToken, classScheduleRouting);
 
->>>>>>> main
 
 app.listen(PORT, () => {
     console.log(
