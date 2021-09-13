@@ -15,8 +15,11 @@ import { getCourses } from '../Redux/actions/coursesActions';
 
 const MyCourseRouting = () => {
     const dispatch = useDispatch()
-    useEffect(() => dispatch(getCourses()), [])
     const {user} = useSelector(state => state.user);
+    useEffect(() => {
+        if (user.role === "staff") dispatch(getCourses())
+    }, [])
+    console.log(user)
     // const courses = useSelector(state => state.courses);
     return (
         <>
