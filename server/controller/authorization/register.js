@@ -2,6 +2,7 @@ const StaffModel = require("../../models/staffModel");
 const StudentModel = require("../../models/studentModel");
 const bcrypt = require("bcrypt");
 const validateRegisterInput = require("./registerValidator");
+const path = require('path');
 
 const register = async (req, res) => {
   if (req.body.registeredAs === "Staff") {
@@ -32,21 +33,17 @@ const register = async (req, res) => {
           });
           try {
             await newStaff.save();
-            res
-              .status(201)
-              .json({
-                success: true,
-                message: "create new staff success",
-                data: newStaff,
-              });
+            res.status(201).json({
+              success: true,
+              message: "create new staff success",
+              data: newStaff,
+            });
           } catch (error) {
-            res
-              .status(401)
-              .json({
-                success: false,
-                message: "create new staff filed",
-                error: error,
-              });
+            res.status(401).json({
+              success: false,
+              message: "create new staff filed",
+              error: error,
+            });
           }
         });
       });
@@ -73,13 +70,11 @@ const register = async (req, res) => {
 
           const staff = await StaffModel.findById(req.body.id);
           if (!staff) {
-            res
-              .status(400)
-              .json({
-                success: false,
-                message: "find staff filed",
-                error: error,
-              });
+            res.status(400).json({
+              success: false,
+              message: "find staff filed",
+              error: error,
+            });
           }
 
           const { firstName, lastName, age, email, courseName, phone } =
@@ -95,24 +90,23 @@ const register = async (req, res) => {
             createBy: staff._id,
           });
           try {
+            if (req.file) {
+              newStudent.profileImg = req.file.path;
+            }
             await newStudent.save();
             staff.students.push(newStudent);
             await staff.save();
-            res
-              .status(201)
-              .json({
-                success: true,
-                message: "create new student success",
-                data: newStudent,
-              });
+            res.status(201).json({
+              success: true,
+              message: "create new student success",
+              data: newStudent,
+            });
           } catch (error) {
-            res
-              .status(400)
-              .json({
-                success: false,
-                message: "create new student filed",
-                error: error,
-              });
+            res.status(400).json({
+              success: false,
+              message: "create new student filed",
+              error: error,
+            });
           }
         });
       });
