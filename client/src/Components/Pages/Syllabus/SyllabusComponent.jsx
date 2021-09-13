@@ -28,15 +28,15 @@ const SyllabusComponent = () => {
               key={courseItem.nameSubject}
               className="vertical-timeline-element--work"
               contentStyle={{
-                background: "rgba(255, 99, 38, 0.9)",
+                background: "rgb(57 97 121 / 90%)",
                 color: "#fff",
               }}
               contentArrowStyle={{
-                borderRight: "7px solid  rgba(255, 99, 38, 0.9)",
+                borderRight: "7px solid  rgb(57 97 121 / 90%)",
               }}
               date="2011 - present"
               iconStyle={{
-                background: "rgba(255, 99, 38, 0.9)",
+                background: "rgb(57 97 121 / 90%)",
                 color: "rgba(255, 99, 38, 0.9)",
               }}
             >
