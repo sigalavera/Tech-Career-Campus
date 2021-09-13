@@ -12,22 +12,12 @@ const Layout = ({ children }) => {
   useEffect(() => {
    if (token) dispatch(getUser());
   }, []);
-  const logout = () => {
-    localStorage.removeItem("jwtToken");
-    window.location.href = "./";
-  };
+
 
   return (
     <div>
-      <button className="btn" onClick={() => logout()}>
-        logout
-      </button>
       <Header />
-      {localStorage.getItem("jwtToken") ? (
-        children
-      ) : (
-        <Login errors={user.errors} />
-      )}
+      {token ? children : <Login errors={user.errors} />}
       <Footer />
     </div>
   );

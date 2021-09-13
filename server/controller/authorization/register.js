@@ -1,5 +1,6 @@
 const StaffModel = require("../../models/staffModel");
 const StudentModel = require("../../models/studentModel");
+const CourseModel = require("../../models/courseModel");
 const bcrypt = require("bcrypt");
 const validateRegisterInput = require("./registerValidator");
 const path = require('path');
@@ -10,6 +11,7 @@ const register = async (req, res) => {
     if (!isValid) {
       return res.status(401).json(errors);
     }
+
     await StaffModel.findOne({ email: req.body.email }, (err, staff) => {
       if (err) throw err;
       if (staff) {
@@ -59,7 +61,7 @@ const register = async (req, res) => {
     await StudentModel.findOne({ email: req.body.email }, (err, student) => {
       if (err) throw err;
       if (student) {
-        return res.status(400).json({ massage: "email already exists" });
+        return res.status(400).json({ errors: { email: "email already exists"} });
       }
       //Password Encryption Before That it enters to the database
       bcrypt.genSalt(12, (err, salt) => {
@@ -77,8 +79,8 @@ const register = async (req, res) => {
             });
           }
 
-          const { firstName, lastName, age, email, courseName, phone } =
-            req.body;
+          const { firstName, lastName, age, email, courseName, phone } = req.body;
+          const course = await CourseModel.findById(req.body.idCourse)
           const newStudent = new StudentModel({
             firstName: firstName,
             lastName: lastName,
@@ -88,6 +90,7 @@ const register = async (req, res) => {
             age: age,
             courseName: courseName,
             createBy: staff._id,
+            courseId: course._id
           });
           try {
             if (req.file) {
@@ -95,12 +98,24 @@ const register = async (req, res) => {
             }
             await newStudent.save();
             staff.students.push(newStudent);
+            course.students.push(newStudent);
             await staff.save();
+<<<<<<< HEAD
             res.status(201).json({
               success: true,
               message: "create new student success",
               data: newStudent,
             });
+=======
+            await course.save();
+            res
+              .status(201)
+              .json({
+                success: true,
+                message: "create new student success",
+                data: newStudent,
+              });
+>>>>>>> main
           } catch (error) {
             res.status(400).json({
               success: false,

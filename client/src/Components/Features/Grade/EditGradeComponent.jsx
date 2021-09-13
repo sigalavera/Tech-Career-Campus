@@ -5,6 +5,7 @@ import "./EditGradeComponent.css";
 import AddGrade from "./AddGrade";
 const EditGradeComponent = ({ handleFnc }) => {
   const student = useSelector((state) => state.student);
+
   const dispatch = useDispatch();
   
   const [editTest, setEditTest] = useState({ isEdit: false, testId: "" });
@@ -31,7 +32,7 @@ const EditGradeComponent = ({ handleFnc }) => {
       </h3>
       {student?.tests.map((test, index) => {
         return (
-          <div key={index}>
+          <div key={test._id}>
             <h4>{test.name}</h4>
             {editTest.isEdit && editTest.testId === test._id ? (
               <>
@@ -63,7 +64,7 @@ const EditGradeComponent = ({ handleFnc }) => {
                 ></i>
                 <i
                   onClick={() => {
-                    setTestDelete({ ...testDelete, testId: test._id })
+                    setTestDelete({ ...testDelete, testId: test._id });
                   }}
                   className="far fa-trash-alt"
                 ></i>

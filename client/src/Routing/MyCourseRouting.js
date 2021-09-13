@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CourseSchedule from '../Components/Pages/CourseSchedule/CourseScheduleComponent';
 
 import StudentGradesComponent from '../Components/Pages/Grades/StudentGradesComponent'
@@ -6,13 +6,21 @@ import AdminGradesComponent from '../Components/Pages/Grades/AdminGradesComponen
 import Syllabus from '../Components/Pages/Syllabus/SyllabusComponent'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Students from '../Components/Pages/Sudents/StudentsComponent';
 import CreatCourse from '../Components/Pages/CreatCourse/CreatCourseComponent';
+import StaffComponents from '../Components/Pages/Staff/StaffComponents';
+import { getCourses } from '../Redux/actions/coursesActions';
 
 
 const MyCourseRouting = () => {
-    const user = useSelector(state => state.user)
+    const dispatch = useDispatch()
+    const {user} = useSelector(state => state.user);
+    useEffect(() => {
+        if (user.role === "staff") dispatch(getCourses())
+    }, [])
+    console.log(user)
+    // const courses = useSelector(state => state.courses);
     return (
         <>
             <Tabs
@@ -20,7 +28,6 @@ const MyCourseRouting = () => {
                 transition={false}
                 id="noanim-tab-example"
                 className="mb-3"
-
             >
                 {/* nice to have
 
@@ -54,9 +61,18 @@ const MyCourseRouting = () => {
                     </Tab> : ""
                 }
 
+{
+                    user.role === "Staff" ? <Tab eventKey="staff" title="סגל" >
+                        <StaffComponents />
+                    </Tab> : ""
+                }
+
 
 
             </Tabs>
+            {/* {
+                courses.map(course => <button>{course.name}</button>)
+            } */}
         </>
     )
 }
