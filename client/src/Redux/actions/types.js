@@ -7,6 +7,7 @@ export const EDIT_GRADE = "EDIT_GRADE";
 export const GET_STUDENT = "GET_STUDENT";
 export const ADD_TEST = "ADD_TEST";
 export const DELETE_TEST = "DELETE_TEST";
+export const GET_STUDENT_TEST = "GET_STUDENT_TEST";
 
 // students
 export const GET_STUDENTS = "GET_STUDENTS";
