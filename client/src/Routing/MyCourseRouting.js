@@ -25,7 +25,6 @@ const MyCourseRouting = () => {
                 transition={false}
                 id="noanim-tab-example"
                 className="mb-3"
-
             >
                 {/* nice to have
 
